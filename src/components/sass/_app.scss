@@ -1,0 +1,75 @@
+html {
+  --headercolor: white;
+  --fontColor: black;
+  --loginButtonColor: black;
+  --loginButtonFontColor: white;
+}
+html[data-theme="violet"] {
+  --headercolor: rgb(60, 6, 69);
+  --fontColor: white;
+  --loginButtonColor: white;
+  --loginButtonFontColor: black;
+}
+html[data-theme="indigo"] {
+  --headercolor: rgb(74, 43, 122);
+  --fontColor: white;
+  --loginButtonColor: rgb(141, 12, 164);
+  --loginButtonFontColor: white;
+}
+html[data-theme="blue"] {
+  --headercolor: rgb(5, 5, 49);
+  --fontColor: white;
+}
+html[data-theme="green"] {
+  --headercolor: rgb(15, 39, 14);
+  --fontColor: white;
+}
+html[data-theme="orange"] {
+  --headercolor: rgb(150, 63, 17);
+  --fontColor: white;
+}
+html[data-theme="red"] {
+  --headercolor: rgb(110, 5, 17);
+  --fontColor: white;
+}
+html[data-theme="rainbow"] {
+  --headercolor: #360b54;
+  --fontColor: white;
+}
+
+.errorForm {
+  border: solid red 3px;
+  color: red;
+}
+.successForm {
+  border: solid darkgreen 3px;
+  color: darkgreen;
+}
+
+/* loading dots from https://codepen.io/vkjgr/pen/gbPaVx */
+.loading {
+  font-size: 24px;
+}
+.loading:after {
+  content: " .";
+  animation: dots 1s steps(5, end) infinite;
+}
+
+@keyframes dots {
+  0%,
+  20% {
+    color: rgba(0, 0, 0, 0);
+    text-shadow: 0.25em 0 0 rgba(0, 0, 0, 0), 0.5em 0 0 rgba(0, 0, 0, 0);
+  }
+  40% {
+    color: black;
+    text-shadow: 0.25em 0 0 rgba(0, 0, 0, 0), 0.5em 0 0 rgba(0, 0, 0, 0);
+  }
+  60% {
+    text-shadow: 0.25em 0 0 grey, 0.5em 0 0 rgba(0, 0, 0, 0);
+  }
+  80%,
+  100% {
+    text-shadow: 0.25em 0 0 black, 0.5em 0 0 black;
+  }
+}

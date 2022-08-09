@@ -1,0 +1,35 @@
+@import "../sass/variables.scss";
+
+.devMenu {
+  flex-direction: row;
+  background-color: rgb(110, 109, 109);
+  border-bottom: black 1px solid;
+  padding: 0 5%;
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    @include UlNormalize;
+    @include FlexRowCenter;
+
+    button {
+      border: none;
+      color: white;
+      height: 40px;
+      width: 100px;
+      margin: 5px;
+    }
+  }
+  .devMenuToggle {
+    color: black;
+  }
+}
+.Red {
+  background-color: darkred;
+}
+.Green {
+  background-color: darkgreen;
+}

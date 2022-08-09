@@ -1,0 +1,27 @@
+@import "./variables.scss";
+
+.landingPageSection {
+  padding-top: 5%;
+
+  .wrapper10 {
+    ul {
+      @include UlNormalize;
+      .activityItem {
+        border-radius: 25px;
+        box-shadow: 5px 5px 5px 0px black;
+        -webkit-box-shadow: 5px 5px 5px 0px black;
+        -moz-box-shadow: 5px 5px 5px 0px black;
+        padding: 10px 20px;
+        min-width: 300px;
+        margin: 20px;
+        outline: grey 2px solid;
+        border-radius: 25px;
+        background-color: white;
+
+        h3 {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+@import "./variables.scss";
+
+$fontH1: 30px;
+$fontLarge: 24px;
+$fontMedium: 20px;
+$fontSmall: 14px;
+$fontButton: 12px;
+
+$fontHeadingType: Roboto, Arial, Helvetica, sans-serif;
+$fontBodyType: Roboto, Arial, Helvetica, sans-serif;
+
+button {
+  font-family: $fontBodyType;
+  font-size: $fontButton;
+  line-height: 120%;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+p {
+  font-family: $fontBodyType;
+  font-size: $fontSmall;
+  line-height: 130%;
+}
+
+h3 {
+  font-family: $fontHeadingType;
+  font-size: $fontMedium;
+  line-height: 120%;
+}
+
+h2 {
+  font-family: $fontHeadingType;
+  font-size: $fontLarge;
+  line-height: 120%;
+}
+
+h1 {
+  font-family: $fontHeadingType;
+  font-size: $fontH1;
+  line-height: 120%;
+}
+.hidden {
+  display: none;
+}
+.shown {
+  display: flex;
+}
+.wrapper5 {
+  padding: 0 5%;
+}
+.wrapper10 {
+  padding: 0 10%;
+}
+
+.wrapper15 {
+  padding: 0 15;
+}
+
+.wrapper5x5 {
+  padding: 5% 5%;
+}
+.wrapper10x10 {
+  padding: 10% 10%;
+}
+
+.wrapper15x15 {
+  padding: 15% 15%;
+}
+.redColour {
+  color: red;
+}

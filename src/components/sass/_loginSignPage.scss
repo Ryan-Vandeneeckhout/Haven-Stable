@@ -1,0 +1,58 @@
+@import "./variables.scss";
+@import "./StyleGuide.scss";
+
+.LoginAndSignUpPageSection {
+  min-height: 100vh;
+  background-color: var(--headercolor);
+  color: var(--fontColor);
+  .wrapper10 {
+    @include FlexColumnCenter;
+    justify-content: center;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    min-height: inherit;
+
+    .contentContainer {
+      text-align: center;
+    }
+    .loginContainers {
+      width: 100%;
+      margin: 10% 0;
+      .buttonContainer {
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+        width: 100%;
+
+        a {
+          border-radius: 15px;
+          display: flex;
+          flex-wrap: nowrap;
+          font-weight: 700;
+          padding: 20px 80px;
+          text-transform: uppercase;
+          cursor: pointer;
+        }
+        .signInButton {
+          @include LightGreen;
+        }
+        .logInButton {
+          background-color: var(--loginButtonColor);
+          color: var(--loginButtonFontColor);
+        }
+        .logInButton:hover,
+        .logInButton:focus,
+        .logInButton:active {
+          outline: solid gold 3px;
+          position: relative;
+          transform: scale(1.025);
+        }
+      }
+    }
+  }
+}
+@media (any-hover: hover) {
+  .logInButton:hover {
+    background: yellow;
+  }
+}

@@ -1,0 +1,115 @@
+@import "./_variables.scss";
+@import "./StyleGuide.scss";
+
+.onBoardingSectionContainer {
+  background-color: var(--headercolor);
+  color: var(--fontColor);
+  min-height: 100vh;
+  .backButton {
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 10px;
+  }
+  .nextButton {
+    background-color: #c0ff99;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 10px;
+    border-radius: 15px;
+  }
+  .onBoardingSectionWrapper {
+    padding: 10% 15%;
+    width: 100%;
+
+    .onBoardingUpperContent {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+    }
+    .Avatars {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      img {
+        height: 50px;
+        width: 50px;
+        margin: 3px;
+        cursor: pointer;
+      }
+    }
+    .css-b62m3t-container {
+      margin-bottom: 10%;
+    }
+
+    .middleContent,
+    .onBoardingContent {
+      form {
+        @include FlexColumn;
+        justify-content: space-evenly;
+        .labelsEmail {
+          @include FlexColumn;
+          label {
+            font-weight: bold;
+            padding: 15px 0;
+          }
+
+          input {
+            background-color: lightgray;
+            border: none;
+            border-radius: 15px;
+            outline: 1px solid grey;
+            padding: 15px;
+            width: 100%;
+          }
+          .errorForm {
+            border: solid red 3px;
+            color: red;
+          }
+          .successForm {
+            border: solid darkgreen 3px;
+            color: darkgreen;
+          }
+        }
+        button {
+          @include LightGreen;
+          border-radius: 15px;
+          border: none;
+          font-weight: 600px;
+          margin-top: 40px;
+          outline: 1px solid grey;
+          padding: 15px;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}
+.interestsContainer {
+  margin-top: 10%;
+  min-height: 25vh;
+  ul {
+    flex-wrap: wrap;
+    @include FlexRowCenter;
+    @include UlNormalize;
+    justify-content: space-between;
+
+    .interestButtons {
+      padding: 15px;
+      border: none;
+      margin: 5px;
+      border-radius: 25px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .clickedTagButton {
+      background-color: #00b249;
+    }
+  }
+}
+.selectedAvatar {
+  outline: solid black 3px;
+}

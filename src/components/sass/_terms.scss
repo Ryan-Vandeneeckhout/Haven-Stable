@@ -1,0 +1,58 @@
+@import "./StyleGuide.scss";
+
+.termsAndConditionsSection {
+  @include centerItems;
+  display: flex;
+  color: black;
+  font-family: Raleway, Cambria, Cochin, Georgia, Times, "Times New Roman",
+    serif;
+  width: 100%;
+  height: 100%;
+  .termsAndConditionsContainer {
+    @include centerItems;
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+      margin-bottom: 25px;
+      font-family: "Raleway", Times, serif;
+    }
+
+    h3 {
+      line-height: 25px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+  }
+  .termsForm {
+    form {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      .acceptCondtions {
+        margin-bottom: 15px;
+      }
+      .submit {
+        width: 200px;
+        background-color: gold;
+      }
+      .checkbox {
+        margin-right: 15px;
+      }
+    }
+  }
+}
+.termsSubmit {
+  width: 100%;
+  outline: solid red 5px;
+  cursor: pointer;
+  height: 40px;
+  input {
+    background-color: black;
+    color: white;
+    height: 100%;
+    width: 100%;
+    border: none;
+  }
+}
