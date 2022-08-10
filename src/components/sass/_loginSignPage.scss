@@ -5,6 +5,7 @@
   min-height: 100vh;
   background-color: var(--headercolor);
   color: var(--fontColor);
+  max-width: 500px;
   .wrapper10 {
     @include FlexColumnCenter;
     justify-content: center;
