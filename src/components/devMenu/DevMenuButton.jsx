@@ -4,7 +4,7 @@ const DevMenuButton = (props) => {
   };
   return (
     <div className="DevMenuButtonContainer">
-      <button onClick={DevMenuOpen}>
+      <button className="openCloseButton" onClick={DevMenuOpen}>
         {props.DevMenuOpen ? "Close" : "Open"} Dev Menu
       </button>
       <button
