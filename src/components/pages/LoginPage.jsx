@@ -77,7 +77,7 @@ const LoginPage = (props) => {
         </div>
         <div className="middleContent">
           {errorAPI && (
-            <p>Error. Please Check your Email and Password Again!</p>
+            <p className="errorAlert"><span className="errorIcon"/>Error please check your email and password again!</p>
           )}
           {successAPI && (
             <p>Success you will be redirected to the homepage shortly!</p>

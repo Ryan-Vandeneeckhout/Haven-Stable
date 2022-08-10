@@ -14,10 +14,18 @@ const SignUpPage = (props) => {
   const [passWordError, setPassWordError] = useState(false);
   const ConfirmPassWordText = "Confirm Password";
   const navigate = useNavigate();
-  let broswerErrorCheck = null;
+  let broswerErrorCheck = (true);
+  const [errorText, setErrorText] = useState(false);
   const EmailRef = useRef(null);
   const passwordRef = useRef(null);
   const confirmPasswordRef = useRef(null);
+
+  const handleMouseOut = () => {
+
+    let audio = document.getElementsByClassName("inputSelectedByUser");
+    for (let i = 0; i < audio.length; i++) audio[i].classList.remove("inputSelectedByUser");
+
+  }
 
   const HandleSubmit = async (e) => {
     e.preventDefault();
@@ -59,22 +67,22 @@ const SignUpPage = (props) => {
         );
         broswerErrorCheck = await response.json();
       } catch (error) {
-        if (broswerErrorCheck === true) {
-        }
       }
       if (broswerErrorCheck === true) {
         EmailRef.current.classList.add("successForm");
           setTimeout(function () {
             navigate('/interests')
-          }, 4000);
+          }, 2000);
       } else {
         EmailRef.current.classList.add("errorForm");
+        setErrorText(true);
       }
       }
-      props.passData(); 
+    props.passData(); 
+    console.log(broswerErrorCheck);
   };
   return (
-    <OnBoardingSectionContainer>
+    <OnBoardingSectionContainer >
       <OnBoardingSectionWrapper>
         <div className="upperContent">
           <h2>Join Haven Today</h2>
@@ -88,10 +96,9 @@ const SignUpPage = (props) => {
         </div>
         <div className="middleContent">
           <form onSubmit={HandleSubmit}>
-            {broswerErrorCheck === false && (
-              <p>Email is Unavailable. Please choose a Different Email!</p>
-            )}
-            <EmailAndPasswordComponent
+            {errorText ? <p className="errorAlert"><span className="errorIcon"/>Email is Unavailable. Please choose a Different Email!</p> : null
+            }
+            <EmailAndPasswordComponent onClick={handleMouseOut}
               password={props.password}
               email={props.email}
               setEmail={props.setEmail}

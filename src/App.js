@@ -58,8 +58,8 @@ function App() {
 
   return (
     <div className="App">
-      <DevMenuButton setDevMenuOpen={setDevMenuOpen}/>
-      <DevMenu setDevMenuOpen={setDevMenuOpen} DevMenuOpen={DevMenuOpen} UserAuth={UserAuth} user={user} />
+      <DevMenuButton DevMenuOpen={DevMenuOpen} UserAuth={UserAuth} user={user} setDevMenuOpen={setDevMenuOpen}/>
+      <DevMenu DevMenuOpen={DevMenuOpen} />
       <BrowserRouter>
         {loadingScreen ? (
           <LoadingScreen

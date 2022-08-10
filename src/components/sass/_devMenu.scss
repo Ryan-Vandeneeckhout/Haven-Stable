@@ -1,19 +1,39 @@
 @import "../sass/variables.scss";
+.DevMenuButtonContainer {
+  width: 100vw;
+  background-color: white;
+  border-top: 1px solid grey;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  padding: 0 5%;
+  height: 60px;
+  bottom: 0;
+  z-index: 10;
 
+  button {
+    height: 40px;
+    padding: 10px;
+    border-radius: 15px;
+    color: white;
+  }
+}
 .devMenu {
   flex-direction: row;
-  background-color: rgb(110, 109, 109);
+  background-color: rgb(46, 46, 46);
   border-bottom: black 1px solid;
-  padding: 0 5%;
-
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 99vh;
+  border-right: 1px solid darkgrey;
+  z-index: 6;
   ul {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
+    width: fit-content;
+    flex-direction: column;
     @include UlNormalize;
-    @include FlexRowCenter;
 
     button {
       border: none;

@@ -57,7 +57,6 @@
           }
 
           input {
-            background-color: lightgray;
             border: none;
             border-radius: 15px;
             outline: 1px solid grey;
@@ -71,6 +70,10 @@
           .successForm {
             border: solid darkgreen 3px;
             color: darkgreen;
+          }
+          .inputSelectedByUser {
+            background-color: #c0ff99;
+            outline: 2px solid green;
           }
         }
         button {

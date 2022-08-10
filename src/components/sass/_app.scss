@@ -3,12 +3,16 @@ html {
   --fontColor: black;
   --loginButtonColor: black;
   --loginButtonFontColor: white;
+  --signupButtonColor: #c0ff99;
+  --signupButtonFontColor: black;
 }
 html[data-theme="violet"] {
   --headercolor: rgb(60, 6, 69);
   --fontColor: white;
   --loginButtonColor: white;
   --loginButtonFontColor: black;
+  --signupButtonColor: white;
+  --signupButtonFontColor: black;
 }
 html[data-theme="indigo"] {
   --headercolor: rgb(74, 43, 122);
@@ -31,6 +35,10 @@ html[data-theme="orange"] {
 html[data-theme="red"] {
   --headercolor: rgb(110, 5, 17);
   --fontColor: white;
+  --loginButtonColor: white;
+  --loginButtonFontColor: black;
+  --signupButtonColor: white;
+  --signupButtonFontColor: black;
 }
 html[data-theme="rainbow"] {
   --headercolor: #360b54;
@@ -72,4 +80,14 @@ html[data-theme="rainbow"] {
   100% {
     text-shadow: 0.25em 0 0 black, 0.5em 0 0 black;
   }
+}
+.havenImage {
+  height: 50vh;
+  width: 50vw;
+  z-index: 1;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background-image: url("../../../public/assets/svg/signup.svg");
+  background-repeat: no-repeat;
 }

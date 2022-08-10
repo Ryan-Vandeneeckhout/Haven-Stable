@@ -7,8 +7,14 @@ import OnBoardingSectionContainer from "../../wrappers/onboardingWrappers/OnBoar
 import InputLinked from "../../inputs/InputLinked";
 import EmailAndPasswordInput from "../../inputs/EmailAndPassInput";
 import ProgressBar from "../../inputs/ProgressBar";
+import { useRef } from "react";
 
 const OnBoardingFLU = (props) => {
+
+  const firstNameRef = useRef(null);
+  const lastNameRef = useRef(null);
+  const usernameRef = useRef(null);
+
   return (
     <OnBoardingSectionContainer>
       <OnBoardingSectionWrapper>
@@ -17,7 +23,7 @@ const OnBoardingFLU = (props) => {
             ButtonText={"Back"}
             ButtonClass={"backButton"}
             ButtonClassContainer={"upperButtonContainer"}
-            Linked={"/pronouns"}
+            Linked={"/interests"}
           />
           {props.username ? (
             <InputLinked
@@ -28,8 +34,8 @@ const OnBoardingFLU = (props) => {
             />
           ) : (
             <div className="buttonContainer upperButtonContainer">
-            <div className="backButton grey">Next</div>
-          </div>
+              <div className="backButton grey">Next</div>
+            </div>
           )}
         </OnBoardingUpperContentWrapper>
         <ProgressBar green={2} grey={4} />
@@ -37,10 +43,18 @@ const OnBoardingFLU = (props) => {
         <OnBoardingContentWrapper>
           <form>
             <EmailAndPasswordInput
+              valueInput={"Username"}
+              valueText={"Username"}
+              setValue={props.setUserName}
+              value={props.username}
+              InputRef={usernameRef}
+            />
+            <EmailAndPasswordInput
               valueInput={"First Name"}
               valueText={"First Name"}
               setValue={props.setFirstName}
               value={props.firstName}
+              InputRef={firstNameRef}
             />
 
             <EmailAndPasswordInput
@@ -48,12 +62,7 @@ const OnBoardingFLU = (props) => {
               valueText={"Last Name"}
               setValue={props.setLastName}
               value={props.lastname}
-            />
-            <EmailAndPasswordInput
-              valueInput={"Username"}
-              valueText={"Username"}
-              setValue={props.setUserName}
-              value={props.username}
+              InputRef={lastNameRef}
             />
           </form>
         </OnBoardingContentWrapper>
