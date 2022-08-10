@@ -6,6 +6,7 @@
   background-color: var(--headercolor);
   color: var(--fontColor);
   max-width: 500px;
+  border-right: 1px grey solid;
   .wrapper10 {
     @include FlexColumnCenter;
     justify-content: center;
