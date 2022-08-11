@@ -23,34 +23,34 @@ const OnBoardingFLU = (props) => {
             ButtonText={"Back"}
             ButtonClass={"backButton"}
             ButtonClassContainer={"upperButtonContainer"}
-            Linked={"/interests"}
+            Linked={"/birthday"}
           />
           {props.username ? (
             <InputLinked
               ButtonText={"Next"}
               ButtonClass={"nextButton"}
               ButtonClassContainer={"upperButtonContainer"}
-              Linked={"/avatars"}
+              Linked={"/location"}
             />
           ) : (
             <div className="buttonContainer upperButtonContainer">
-              <div className="backButton grey">Next</div>
+              <div className="nextButton grey">Next</div>
             </div>
           )}
         </OnBoardingUpperContentWrapper>
-        <ProgressBar green={2} grey={4} />
+        <ProgressBar green={2} grey={5} />
         <h2>Profile Settings - FLU</h2>
         <OnBoardingContentWrapper>
           <form>
             <EmailAndPasswordInput
-              valueInput={"Username"}
-              valueText={"Username"}
+              valueInput={"Username required..."}
+              valueText={"Username Required"}
               setValue={props.setUserName}
               value={props.username}
               InputRef={usernameRef}
             />
             <EmailAndPasswordInput
-              valueInput={"First Name"}
+              valueInput={"First Name (Optional)..."}
               valueText={"First Name"}
               setValue={props.setFirstName}
               value={props.firstName}
@@ -58,7 +58,7 @@ const OnBoardingFLU = (props) => {
             />
 
             <EmailAndPasswordInput
-              valueInput={"Last Name"}
+              valueInput={"Last Name (Optional)..."}
               valueText={"Last Name"}
               setValue={props.setLastName}
               value={props.lastname}

@@ -71,15 +71,14 @@ const SignUpPage = (props) => {
       if (broswerErrorCheck === true) {
         EmailRef.current.classList.add("successForm");
           setTimeout(function () {
-            navigate('/interests')
-          }, 2000);
+            navigate('/birthday')
+          }, 1000);
       } else {
         EmailRef.current.classList.add("errorForm");
         setErrorText(true);
       }
       }
     props.passData(); 
-    console.log(broswerErrorCheck);
   };
   return (
     <OnBoardingSectionContainer >

@@ -60,8 +60,14 @@
 .createUserLoadingScreen {
   @include FlexColumn;
   justify-content: center;
+  align-content: center;
   min-height: 100vh;
-
+  .square {
+    min-height: inherit;
+    @include FlexColumn;
+    justify-content: center;
+    align-items: center;
+  }
   h2 {
     font-size: 20px;
     text-align: center;
@@ -71,11 +77,11 @@
     display: flex;
     align-content: center;
     justify-content: center;
-    margin-bottom: 40px;
+    margin: 40px;
     animation: rotation 4s infinite linear;
   }
   .arrows {
-    background: url("../../../public/assets/arrows.svg");
+    background: url("../../../public/assets/svg/loadingcircle.svg");
     height: 40px;
     background-repeat: no-repeat;
     width: 40px;

@@ -82,12 +82,52 @@ html[data-theme="rainbow"] {
   }
 }
 .havenImage {
-  height: 50vh;
-  width: 50vw;
+  height: 300px;
+  width: 300px;
   z-index: 1;
-  position: fixed;
-  bottom: 0;
-  right: 0;
+  position: absolute;
+  bottom: 5%;
+  color: black;
+  left: 50%;
   background-image: url("../../../public/assets/svg/signup.svg");
   background-repeat: no-repeat;
+}
+.appWrapper {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+
+  .canvasBoard {
+    background-color: rgb(5, 5, 49);
+    width: 100%;
+    min-height: inherit;
+    color: white;
+    position: relative;
+    overflow-y: hidden;
+    .wrapper {
+      min-height: inherit;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    h1 {
+      font-size: 84px;
+      letter-spacing: 2px;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      z-index: 2;
+    }
+  }
+}
+@media only screen and (max-width: 625px) {
+  .canvasBoard {
+    display: none;
+  }
+
+  .appWrapper {
+    display: inline;
+    flex-direction: row;
+    min-height: 100vh;
+  }
 }

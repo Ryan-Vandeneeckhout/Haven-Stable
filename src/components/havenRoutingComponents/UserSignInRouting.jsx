@@ -9,6 +9,11 @@ const UserSignInRouting = () => {
       <Routes>
         <Route extact path="/" element={<LandingPage />} />
         <Route extact path="/createuser" element={<Navigate to="/" />} />
+        <Route extact path="/interests" element={<Navigate to="/" />} />
+        <Route extact path="/signup" element={<Navigate to="/" />} />
+        <Route extact path="/login" element={<Navigate to="/" />} />
+        <Route extact path="/avatars" element={<Navigate to="/" />} />
+        <Route extact path="/flu" element={<Navigate to="/" />} />
       </Routes>
     </main>
   );

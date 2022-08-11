@@ -26,21 +26,21 @@ const OnBoardingAvatars = (props) => {
             ButtonText={"Back"}
             ButtonClass={"backButton"}
             ButtonClassContainer={"upperButtonContainer"}
-            Linked={"/flu"}
+            Linked={"/interests"}
           />
           <InputLinked
             ButtonText={"Next"}
             ButtonClass={"nextButton"}
             ButtonClassContainer={"upperButtonContainer"}
-            Linked={"/birthday"}
+            Linked={"/createuser"}
           />
         </OnBoardingUpperContentWrapper>
-        <ProgressBar green={5} grey={1} />
+        <ProgressBar green={7} grey={0} />
         <h2>Avatars:</h2>
         <OnBoardingContentWrapper>
           <div className="Avatars">
             {AvatarMap.map((item, index) => {
-              return <OnBoardingAvatarimg passData={props.passData} avatarUrl={props.avatarUrl} key={index} numbers={item} />;
+              return <OnBoardingAvatarimg passData={props.passData} setAvatar={props.setAvatar} key={index} numbers={item} />;
             })}
           </div>
         </OnBoardingContentWrapper>
