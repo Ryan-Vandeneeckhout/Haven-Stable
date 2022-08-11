@@ -90,3 +90,8 @@
     min-width: 500px;
   }
 }
+@media only screen and (max-width: 625px) {
+  .LoginAndSignUpPageSection {
+    border: none;
+  }
+}

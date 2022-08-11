@@ -121,13 +121,21 @@ html[data-theme="rainbow"] {
   }
 }
 @media only screen and (max-width: 625px) {
-  .canvasBoard {
-    display: none;
-  }
-
   .appWrapper {
     display: inline;
     flex-direction: row;
     min-height: 100vh;
+  }
+  .appWrapper {
+    .canvasBoard {
+      display: none;
+      .wrapper {
+        display: none;
+      }
+    }
+  }
+
+  .LoginAndSignUpPageSection {
+    border: none;
   }
 }
