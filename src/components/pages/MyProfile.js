@@ -1,8 +1,10 @@
 import React from "react";
-import UserCard from "../userPofile/UserCard";
+import UserCard from "../userProfile/UserCard";
 
 function MyProfile() {
-  const [userInfo, setUserInfo] = React.useState({});
+  const [myInfo, setMyInfo] = React.useState({});
+  const [myInterests, setUserInterests] = React.useState({});
+  const [myActivities, setUserActivities] = React.useState({});
 
   const getUserInfo = async () => {
     try {
@@ -14,7 +16,9 @@ function MyProfile() {
         },
       });
       const parseRes = await res.json();
-      setUserInfo(parseRes.myUser[0]);
+      setMyInfo(parseRes.myUser[0]);
+      setUserInterests(parseRes.myInterests);
+      setUserActivities(parseRes.myActivities);
     } catch (error) {
       console.error(error);
     }
@@ -25,7 +29,7 @@ function MyProfile() {
 
   return (
     <div>
-      <UserCard userInfo={userInfo} />
+      <UserCard user={{ myInfo, myInterests, myActivities }} />
     </div>
   );
 }
