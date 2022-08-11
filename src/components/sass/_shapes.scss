@@ -2,6 +2,11 @@
   min-height: 90%;
   width: 100%;
   position: absolute;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: gold;
+  stroke-width: 2px;
+  stroke: gold;
+  text-shadow: 0 0 3px #000;
 }
 .shapes .star {
   height: 60px;
@@ -10,17 +15,23 @@
   top: 10%;
   left: 10%;
   animation: 4s linear infinite;
+  stroke: white;
+  stroke-width: 1em;
 }
 .shapes .star:nth-child(1) {
   top: 20%;
   left: 20%;
   color: darkred;
+  stroke: goldenrod;
+  stroke-width: 1em;
   animation: animate 8s linear infinite;
 }
 .shapes .star:nth-child(2) {
   top: 60%;
   left: 80%;
   color: goldenrod;
+  stroke: darkred;
+  stroke-width: 1em;
   animation: animate 10s linear infinite;
 }
 .shapes .star:nth-child(3) {
