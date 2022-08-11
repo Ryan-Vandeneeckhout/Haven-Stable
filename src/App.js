@@ -1,13 +1,12 @@
-import "./components/sass/_app.scss";
-import "./components/sass/_setup.scss";
-
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
+import DevMenu from "./components/devMenu/DevMenu";
+import DevMenuButton from "./components/devMenu/DevMenuButton";
 import UserSignedOutInRouting from "./components/havenRoutingComponents/UserSignedOutRouting.jsx";
 import UserSignInRouting from "./components/havenRoutingComponents/UserSignInRouting.jsx";
 import LoadingScreen from "./components/loadingscreens/LoadingScreen.jsx";
-import DevMenu from "./components/devMenu/DevMenu";
-import DevMenuButton from "./components/devMenu/DevMenuButton";
+import "./components/sass/_app.scss";
+import "./components/sass/_setup.scss";
 
 function App() {
   const [loadingScreen, setLoadingScreen] = useState(true);
@@ -45,7 +44,7 @@ function App() {
 
       setTimeout(function () {
         setLoadingScreen(false);
-      }, 4000);
+      }, 1000);
     } catch (error) {
       setTextAPIConnection("Connection Failed, Please Try Again");
       setError(true);
