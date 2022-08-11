@@ -5,6 +5,11 @@
   min-height: 100vh;
   background-color: var(--headercolor);
   color: var(--fontColor);
+  max-width: 500px;
+  min-width: 350px;
+  border-right: 1px grey solid;
+  position: relative;
+
   .wrapper10 {
     @include FlexColumnCenter;
     justify-content: center;
@@ -18,14 +23,16 @@
     .loginContainers {
       width: 100%;
       margin: 10% 0;
+      z-index: 5;
       .buttonContainer {
         display: flex;
         justify-content: center;
         padding: 20px;
         width: 100%;
-
+        z-index: 5;
         a {
           border-radius: 15px;
+          border: solid 2px grey;
           display: flex;
           flex-wrap: nowrap;
           font-weight: 700;
@@ -34,7 +41,8 @@
           cursor: pointer;
         }
         .signInButton {
-          @include LightGreen;
+          background-color: var(--signupButtonColor);
+          color: var(--signupButtonFontColor);
         }
         .logInButton {
           background-color: var(--loginButtonColor);
@@ -54,5 +62,36 @@
 @media (any-hover: hover) {
   .logInButton:hover {
     background: yellow;
+  }
+}
+.errorAlert {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+  margin: 0;
+  color: red;
+}
+.errorIcon {
+  background-image: url("../../../public/assets/svg/error.svg");
+  background-repeat: no-repeat;
+  color: white;
+  height: 18px;
+  width: 25px;
+  display: block;
+  margin-right: 15px;
+  filter: invert(16%) sepia(46%) saturate(4807%) hue-rotate(358deg)
+    brightness(82%) contrast(128%);
+}
+@media only screen and (min-width: 1625px) {
+  .LoginAndSignUpPageSection {
+    min-width: 500px;
+  }
+  .onBoardingSectionContainer {
+    min-width: 500px;
+  }
+}
+@media only screen and (max-width: 625px) {
+  .LoginAndSignUpPageSection {
+    border: none;
   }
 }

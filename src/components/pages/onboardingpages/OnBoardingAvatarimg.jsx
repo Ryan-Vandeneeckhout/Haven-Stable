@@ -1,27 +1,15 @@
-import { useState } from "react";
 import { useRef } from "react";
 
 const OnBoardingAvatarimg = (props) => {
-  const [tagButtonSelected, setTagButtonSelected] = useState(false);
   const avatarRef = useRef();
 
-  const addClass = () => {
-    if (tagButtonSelected === false) {
-      setTagButtonSelected(true);
+  const addClass = (e) => {
       let avatarselected = document.getElementsByClassName("selectedAvatar");
       for (let i = 0; i < avatarselected.length; i++)
       avatarselected[i].classList.remove("selectedAvatar");
-      
+      localStorage.setItem("avatar", e.target.getAttribute('src'));
       avatarRef.current.classList.add("selectedAvatar");
       props.passData();
-    } else {
-      //Taglist if user wishes to choose another avatar//
-      setTagButtonSelected(false);
-      avatarRef.current.classList.remove("selectedAvatar");
-      let avatarselected = document.getElementsByClassName("selectedAvatar");
-      for (let i = 0; i < avatarselected.length; i++)
-        avatarselected[i].classList.remove("selectedAvatar");
-    }
   };
 
   return (

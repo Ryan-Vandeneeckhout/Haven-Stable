@@ -5,13 +5,9 @@ const LoadingScreen = (props) => {
   return (
     <section className="LoadingScreenSection">
       <div className="wrapper10">
-        <div className="LoadingScreenCircle">
-          <div className="loadingScreenTitleContainer">
-            <h1>H</h1>
-            {/*Have Jing create a custom svg with a stylized H as a logo*/}
-            {props.loadingScreenMenu && <h2>Click to Login</h2>}
+      <div className="truck">
+            <img src="./assets/svg/loading.svg" alt="a truck zooming by on the haven user creation page."/>
           </div>
-        </div>
 
         <h3 className={`loadingScreenH3${props.error ? " errorConectionDatabase" : null}`}>
           {props.error
