@@ -47,10 +47,11 @@ const OnBoardingCreateUser = (props) => {
     <>
       <div className="createUserLoadingScreen">
         <div className="square">
+          <div className="truck">
+            <img src="./assets/svg/loading.svg" alt="a truck zooming by on the haven user creation page."/>
+          </div>
           <div className="circleRotating">
-            <div className="arrows">
-              <div className="arrow"></div>
-            </div>
+          <img src="./assets/svg/loadingcircle.svg" alt="loading circle for the creation of user profile"/>
           </div>
           <div className="titleContainerLoadingScreen">
             <h2 className="loading">{props.text}</h2>

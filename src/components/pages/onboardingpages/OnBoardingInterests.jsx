@@ -8,21 +8,22 @@ import InputLinked from "../../inputs/InputLinked";
 import ProgressBar from "../../inputs/ProgressBar";
 import { OnBoardingInterestsMap } from "./OnBoardingInterestsMap";
 import TaglistIndivdualButton from "./TaglistIndividualButton";
-import { useState } from "react";
+import useStateRef from "react-usestateref";
 
 const OnBoardingInterests = (props) => {
-  const [tagValue, setTagValue] = useState("Haven");
+  const [, setTagValue, tagValueRef] = useStateRef(null);
 
   const tagArray = () => {
-    console.log(props.tagsarray);
     //If the Taglist Array Does not Contain the Selection
-    if (!props.tagsarray.includes(tagValue)) {
-      props.setTagsArray(() => [...props.tagsarray, tagValue]);
+    if (!props.tagsarray.includes(tagValueRef.current)) {
+      props.setTagsArray(() => [...props.tagsarray, tagValueRef.current]);
       props.passData();
+     
     } else {
-      props.setTagsArray(props.tagsarray.filter((item) => item !== tagValue));
+      props.setTagsArray(props.tagsarray.filter((item) => item !== tagValueRef.current));
       props.passData();
     }
+    console.log(props.tagsarray);
   };
   return (
     <OnBoardingSectionContainer>
@@ -32,16 +33,16 @@ const OnBoardingInterests = (props) => {
             ButtonText={"Back"}
             ButtonClass={"backButton"}
             ButtonClassContainer={"upperButtonContainer"}
-            Linked={"/"}
+            Linked={"/pronouns"}
           />
           <InputLinked
             ButtonText={"Next"}
             ButtonClass={"nextButton"}
             ButtonClassContainer={"upperButtonContainer"}
-            Linked={"/flu"}
+            Linked={"/avatars"}
           />
         </OnBoardingUpperContentWrapper>
-        <ProgressBar green={1} grey={5} />
+        <ProgressBar green={5} grey={2} />
         <h2>Help Us Get to Know You!</h2>
         <OnBoardingContentWrapper>
           <div className="interestsContainer">

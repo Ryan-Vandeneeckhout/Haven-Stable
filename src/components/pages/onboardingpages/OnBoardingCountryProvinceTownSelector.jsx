@@ -33,16 +33,16 @@ const OnBoardingCountryProvinceTownSelector = (props) => {
             ButtonText={"Back"}
             ButtonClass={"backButton"}
             ButtonClassContainer={"upperButtonContainer"}
-            Linked={"/avatars"}
+            Linked={"/flu"}
           />
           <InputLinked
             ButtonText={"Next"}
             ButtonClass={"nextButton"}
             ButtonClassContainer={"upperButtonContainer"}
-            Linked={"/birthday"}
+            Linked={"/pronouns"}
           />
         </OnBoardingUpperContentWrapper>
-        <ProgressBar green={5} grey={1} />
+        <ProgressBar green={3} grey={4} />
         <h2>Where are you located?</h2>
         <OnBoardingContentWrapper>
           <form onSubmit={HandleSubmit}>

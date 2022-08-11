@@ -1,11 +1,19 @@
 const DevMenuButton = (props) => {
-
-
-    const DevMenuOpen = () => {
-        props.setDevMenuOpen(true); 
-    }
-    return (
-        <button onClick={DevMenuOpen}>Open Dev Menu</button>
-    )
-}
-export default DevMenuButton; 
+  const DevMenuOpen = () => {
+    props.setDevMenuOpen((value) => !value);
+  };
+  return (
+    <div className="DevMenuButtonContainer">
+      <button className="openCloseButton" onClick={DevMenuOpen}>
+        {props.DevMenuOpen ? "Close" : "Open"} Dev Menu
+      </button>
+      <button
+        className={`userSwitchAuthButton${props.user ? " Green" : " Red"}`}
+        onClick={props.UserAuth}
+      >
+        {props.user ? "User True" : "User False"}{" "}
+      </button>
+    </div>
+  );
+};
+export default DevMenuButton;

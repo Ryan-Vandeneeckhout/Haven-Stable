@@ -26,6 +26,8 @@ const LoginAndSignUpLandingPage = () => {
         <div className="logInbottom">
           <p>A Community created in the Spirit of Friendship</p>
         </div>
+        <div className="havenImage">
+        </div>
       </div>
     </section>
   );

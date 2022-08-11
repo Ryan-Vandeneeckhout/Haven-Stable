@@ -3,8 +3,11 @@
 
 .onBoardingSectionContainer {
   background-color: var(--headercolor);
+  border-right: 1px grey solid;
   color: var(--fontColor);
   min-height: 100vh;
+  max-width: 500px;
+  min-width: 350px;
   .backButton {
     font-weight: 600;
     text-transform: uppercase;
@@ -16,6 +19,9 @@
     text-transform: uppercase;
     padding: 10px;
     border-radius: 15px;
+  }
+  .grey {
+    background-color: grey;
   }
   .onBoardingSectionWrapper {
     padding: 10% 15%;
@@ -32,10 +38,15 @@
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-
-      img {
+      .imgAvatar {
         height: 50px;
         width: 50px;
+        margin: 5px;
+        cursor: pointer;
+      }
+      img {
+        height: 100%;
+        width: 100%;
         margin: 3px;
         cursor: pointer;
       }
@@ -57,12 +68,12 @@
           }
 
           input {
-            background-color: lightgray;
             border: none;
             border-radius: 15px;
             outline: 1px solid grey;
             padding: 15px;
             width: 100%;
+            background-color: white;
           }
           .errorForm {
             border: solid red 3px;
@@ -71,6 +82,10 @@
           .successForm {
             border: solid darkgreen 3px;
             color: darkgreen;
+          }
+          .inputSelectedByUser {
+            background-color: #c0ff99;
+            outline: 2px solid green;
           }
         }
         button {
@@ -103,6 +118,7 @@
       border-radius: 25px;
       text-transform: uppercase;
       font-weight: bold;
+      cursor: pointer;
     }
 
     .clickedTagButton {
@@ -112,4 +128,7 @@
 }
 .selectedAvatar {
   outline: solid black 3px;
+}
+.pronounsPara {
+  margin-top: 15%;
 }
