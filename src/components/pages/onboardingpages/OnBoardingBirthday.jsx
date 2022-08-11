@@ -15,9 +15,6 @@ const OnBoardingBirthday = (props) => {
   const monthRef = useRef(null);
   const yearRef = useRef(null);
   
-  const handleBirthdayLogic = () => {
-  
-}
   return (
     <OnBoardingSectionContainer>
       <OnBoardingSectionWrapper>
