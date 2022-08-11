@@ -4,7 +4,7 @@ import UserInterest from "./UserInterest";
 function UserCard(props) {
   const arr = Array.from(props.user.myInterests);
   const interests = arr.map((interest) => {
-    return <UserInterest interests={interest.interest} key = {interest.id}/>;
+    return <UserInterest interests={interest.interest} key={interest.id} />;
   });
   return (
     <div>
