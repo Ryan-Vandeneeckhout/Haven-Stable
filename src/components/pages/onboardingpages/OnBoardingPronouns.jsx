@@ -23,7 +23,7 @@ const OnBoardingPronouns = (props) => {
           />
           <InputLinked
             ButtonText={"Next"}
-            ButtonClass={"backButton"}
+            ButtonClass={"nextButton"}
             ButtonClassContainer={"upperButtonContainer"}
             Linked={"/interests"}
           />
@@ -41,7 +41,7 @@ const OnBoardingPronouns = (props) => {
       </form>
         </OnBoardingContentWrapper>
         <OnBoardingContentWrapperBottom>
-          <p>Bottom Content of on Boarding </p>
+          <p className="pronounsPara">You can always change them later.</p>
         </OnBoardingContentWrapperBottom>
       </OnBoardingSectionWrapper>
     </OnBoardingSectionContainer>
