@@ -2,9 +2,9 @@ import React from "react";
 import UserCard from "../userProfile/UserCard";
 
 function MyProfile() {
-  const [myInfo, setMyInfo] = React.useState({});
-  const [myInterests, setUserInterests] = React.useState({});
-  const [myActivities, setUserActivities] = React.useState({});
+  const [userInfo, setMyInfo] = React.useState({});
+  const [userInterests, setUserInterests] = React.useState({});
+  const [userActivities, setUserActivities] = React.useState({});
 
   const getUserInfo = async () => {
     try {
@@ -29,7 +29,7 @@ function MyProfile() {
 
   return (
     <div>
-      <UserCard user={{ myInfo, myInterests, myActivities }} />
+      <UserCard user={{ userInfo, userInterests, userActivities }} />
     </div>
   );
 }
