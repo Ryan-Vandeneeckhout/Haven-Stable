@@ -1,5 +1,5 @@
 import React, { useDeferredValue } from "react";
-import Card from "../userProfile/Card"
+import Card from "../userProfile/Card";
 
 const UserSearch = () => {
   const [users, setUsers] = React.useState([]);
@@ -20,19 +20,14 @@ const UserSearch = () => {
   };
 
   const userList = users.map((user) => {
-
     const userInfo = {
-      username :user.username,
+      username: user.username,
       first_name: user.first_name,
       last_name: user.last_name,
       pronouns: user.pronouns,
-      location: user.location
-    }
-    return (
-      <Card
-      user = {{userInfo}}
-      />
-    );
+      location: user.location,
+    };
+    return <Card user={{ userInfo }} />;
   });
 
   React.useEffect(() => {
@@ -41,9 +36,7 @@ const UserSearch = () => {
 
   return (
     <div>
-      <ul>
-      {userList}
-    </ul>
+      <ul>{userList}</ul>
     </div>
   );
 };
