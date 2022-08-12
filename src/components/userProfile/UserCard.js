@@ -18,7 +18,10 @@ function UserCard(props) {
         <h5></h5>
         <h5>{props.user.userInfo.pronouns}</h5>
         <h5>{props.user.userInfo.location}</h5>
-      </div>
+        </div>
+        <div className="interests">
+          {interests}
+        </div>
     </div>
     </div>
   );

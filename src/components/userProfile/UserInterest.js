@@ -3,7 +3,7 @@ import React from "react";
 function UserInterest(props) {
   return (
     <div>
-      <p>{props.interests}</p>
+      <span className="badge bg-success">{props.interests}</span>
     </div>
   );
 }
