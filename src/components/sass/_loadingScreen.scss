@@ -14,10 +14,6 @@
     position: relative;
     @include centerItems;
     @include Maxsize100;
-
-    .truck {
-      animation: animate2 3s linear infinite;
-    }
   }
   button {
     @include LightGreen;

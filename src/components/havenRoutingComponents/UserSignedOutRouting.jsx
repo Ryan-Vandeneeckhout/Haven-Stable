@@ -12,7 +12,6 @@ import OnBoardingCreateUser from "../pages/onboardingpages/OnBoardingCreateUser.
 import OnBoardingBirthday from "../pages/onboardingpages/OnBoardingBirthday.jsx";
 import OnBoardingInterests from "../pages/onboardingpages/OnBoardingInterests.jsx";
 import OnBoardingPronouns from "../pages/onboardingpages/OnBoardingPronouns.jsx";
-import Shapes from "../shapes/Shapes.jsx";
 
 const UserSignedOutInRouting = (props) => {
   const [text, setText] = useState("Creating User");
@@ -32,7 +31,7 @@ const UserSignedOutInRouting = (props) => {
     email: email,
     password: password,
     avatar_url: localStorage.avatar,
-    interests: tagsarray,
+    interests: JSON.stringify(tagsarray),
     first_name: firstName,
     last_name: lastName,
     username: userName,
@@ -48,7 +47,7 @@ const UserSignedOutInRouting = (props) => {
       email: email,
       password: password,
       avatar_url: localStorage.avatar,
-      interests: tagsarray,
+      interests: JSON.stringify(tagsarray),
       first_name: firstName,
       last_name: lastName,
       username: userName,
@@ -172,12 +171,12 @@ const UserSignedOutInRouting = (props) => {
             }
           />
         </Routes>
-        <section className="canvasBoard">
+     {/*    <section className="canvasBoard">
           <Shapes />
           <div className="wrapper">
             <h1>Haven</h1>
           </div>
-        </section>
+        </section> */}
       </div>
     </main>
   );

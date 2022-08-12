@@ -15,12 +15,12 @@ const TaglistIndivdualButton = (props) => {
             tagButtonRef.current.classList.add("clickedTagButton");
             setTagButtonSelected(true);
             props.setTagValue(event.target.value);
-            props.tagArray(); 
+            props.tagArray();
         }
         else {
             //Taglist if user wishes to remove from search
             tagButtonRef.current.classList.remove("clickedTagButton");
-            setTagButtonSelected(false); 
+            setTagButtonSelected(false);
             props.setTagValue(event.target.value);
             props.tagArray(); 
         }
