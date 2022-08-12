@@ -39,6 +39,7 @@
   justify-content: center;
   align-content: center;
   min-height: 100vh;
+  min-width: 350px;
   .square {
     min-height: inherit;
     @include FlexColumn;

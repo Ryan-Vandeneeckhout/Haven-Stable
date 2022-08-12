@@ -49,11 +49,13 @@
           color: var(--loginButtonFontColor);
         }
         .logInButton:hover,
+        .signInButton:hover,
         .logInButton:focus,
-        .logInButton:active {
+        .signInButton:focus,
+        .logInButton:active,
+        .signInButton:active {
           outline: solid gold 3px;
-          position: relative;
-          transform: scale(1.025);
+          transform: ease-out 5s scale(1.025);
         }
       }
     }
@@ -87,6 +89,9 @@
     min-width: 500px;
   }
   .onBoardingSectionContainer {
+    min-width: 500px;
+  }
+  .createUserLoadingScreen {
     min-width: 500px;
   }
 }

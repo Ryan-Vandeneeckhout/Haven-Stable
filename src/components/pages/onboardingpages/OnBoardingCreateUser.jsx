@@ -27,8 +27,12 @@ const OnBoardingCreateUser = (props) => {
     }
 
     if (broswerErrorCheck === "Missing Credentials") {
-      props.setText("Haven Token Empty, User Not Authorized by Database");
-    } else {
+      props.setText("Missing Credentials, Setting Haven Token as Empty, User Not Authorized by Database");
+    }
+      else if (broswerErrorCheck === "Server error") {
+      props.setText("Server Error")
+      }
+     else {
       props.setText("User Created, Welcome to Haven");
 
       setTimeout(function () {
