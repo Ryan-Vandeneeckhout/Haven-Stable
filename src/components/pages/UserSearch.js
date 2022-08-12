@@ -35,7 +35,7 @@ const UserSearch = () => {
   }, []);
 
   return (
-    <div>
+    <div class = "d-flex justify-content-around">
       <ul>{userList}</ul>
     </div>
   );
