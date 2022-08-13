@@ -19,6 +19,19 @@
     text-transform: uppercase;
     padding: 10px;
     border-radius: 15px;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .buttonContainer {
+    a {
+      text-decoration: none;
+    }
+    a:hover {
+      color: black;
+    }
   }
   .grey {
     background-color: grey;

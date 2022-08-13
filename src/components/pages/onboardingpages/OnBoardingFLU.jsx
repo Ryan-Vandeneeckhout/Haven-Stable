@@ -39,7 +39,7 @@ const OnBoardingFLU = (props) => {
           )}
         </OnBoardingUpperContentWrapper>
         <ProgressBar green={2} grey={5} />
-        <h2>Profile Settings - FLU</h2>
+        <h2>Profile Settings</h2>
         <OnBoardingContentWrapper>
           <form>
             <EmailAndPasswordInput

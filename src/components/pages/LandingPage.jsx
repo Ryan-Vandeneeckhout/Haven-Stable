@@ -23,8 +23,7 @@ const LandingPage = () => {
       return 0;
     });
     setActivityItem([...orderedNewest]);
-
-    renderActvityItems();
+   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const renderActvityItems = () => {
@@ -63,7 +62,6 @@ const LandingPage = () => {
   return (
     <section className="landingPageSection">
       <div className="wrapper10">
-        <h1>Landing Page</h1>
         <div className="activityListContainer">
           <AxiosGET
             APICallUrl={"https://haven-nodejs.herokuapp.com/activities"}

@@ -4,9 +4,9 @@ const DevMenuButton = (props) => {
   };
   return (
     <div className="DevMenuButtonContainer">
-      <button className="openCloseButton" onClick={DevMenuOpen}>
+     {/*  <button className="openCloseButton" onClick={DevMenuOpen}>
         {props.DevMenuOpen ? "Close" : "Open"} Dev Menu
-      </button>
+      </button> */}
       <button
         className={`userSwitchAuthButton${props.user ? " Green" : " Red"}`}
         onClick={props.UserAuth}
