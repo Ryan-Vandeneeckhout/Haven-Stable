@@ -26,8 +26,9 @@ const UserSearch = () => {
       last_name: user.last_name,
       pronouns: user.pronouns,
       location: user.location,
+      id: user.id
     };
-    return <Card user={{ userInfo }} />;
+    return <Card user={{ userInfo }} key = {userInfo.id}/>;
   });
 
   React.useEffect(() => {
