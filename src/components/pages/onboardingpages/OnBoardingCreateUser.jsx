@@ -38,11 +38,11 @@ const OnBoardingCreateUser = (props) => {
       setTimeout(function () {
         props.setText("Engraving the details to the stone tablet");
         
-      }, 4000);
+      }, 1000);
       setTimeout(function () {
         props.isAuth();
         
-      }, 4000);
+      }, 1000);
 
     }
   };
