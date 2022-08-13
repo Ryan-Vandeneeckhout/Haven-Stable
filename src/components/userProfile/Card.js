@@ -19,16 +19,15 @@ function Card(props) {
       );
       const parseRes = await res.json();
       setUserInterests(parseRes);
-      console.log(userInterests);
     } catch (error) {
       console.error(error);
     }
   };
-React.useEffect(() => {
-  fetchInterests();
-}, [])
-  const arr = Array.from(userInterests)
-  console.log(arr)
+  React.useEffect(() => {
+    fetchInterests();
+  }, []);
+  const arr = Array.from(userInterests);
+  console.log(arr);
   const interests = arr.map((interest) => {
     return <UserInterest interests={interest.interest} key={interest.id} />;
   });
