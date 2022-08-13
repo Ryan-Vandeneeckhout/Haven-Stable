@@ -1,7 +1,7 @@
 const DevMenuButton = (props) => {
-  const DevMenuOpen = () => {
+/*   const DevMenuOpen = () => {
     props.setDevMenuOpen((value) => !value);
-  };
+  }; */
   return (
     <div className="DevMenuButtonContainer">
      {/*  <button className="openCloseButton" onClick={DevMenuOpen}>
