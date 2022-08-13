@@ -1,6 +1,6 @@
 import React from "react";
 import UserCard from "../userProfile/UserCard";
-
+import Activity from "../activities/Activity";
 function MyProfile() {
   const [userInfo, setMyInfo] = React.useState({});
   const [userInterests, setUserInterests] = React.useState({});
@@ -12,13 +12,16 @@ function MyProfile() {
     spots_open: "",
     spots_total: "",
   });
+  
+  const arr = Array.from(userActivities)
+  const activities = arr.map((activity)=> {
+    return <Activity props= {activity}/>
+  })
 
   const onChange = (e) => {
-    console.log(inputs);
     switch (e.target.placeholder) {
       case "Activity Title":
         setInputs({ ...inputs, title: e.target.value });
-        console.log(inputs);
         break;
       case "Description":
         setInputs({ ...inputs, content: e.target.value });
@@ -105,6 +108,7 @@ function MyProfile() {
           Post Activity!
         </button>
       </div>
+      <div>{activities}</div>
     </div>
   );
 }
