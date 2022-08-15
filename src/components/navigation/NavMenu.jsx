@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
+import "../sass/_nav.scss"; 
 
 const NavMenu = () => {
   return (
-    <section>
-      <nav>
+      <nav className="navMenuProfilePage">
         <ul>
           <li><Link to="/">Home</Link></li>
           <li>Haven</li>
@@ -12,7 +12,6 @@ const NavMenu = () => {
           </li>
         </ul>
       </nav>
-    </section>
   );
 };
 export default NavMenu;

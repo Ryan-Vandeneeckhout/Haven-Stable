@@ -189,7 +189,6 @@
   margin-top: 20px;
 }
 .interestsContainer {
-  margin-top: 10%;
   min-height: 25vh;
   ul {
     flex-wrap: wrap;
@@ -222,13 +221,17 @@
 .checkboxContainer {
   margin: 10px;
 }
+.questionList {
+  @include UlNormalize;
+}
 .questionForm {
   display: flex;
   flex-direction: column;
-  height: 25vh;
+  height: 100%;
   outline: solid black 3px;
   border-radius: 15px;
   padding: 5%;
+  margin-bottom: 10%;
   background-color: rgb(242, 248, 244);
 
   textarea {

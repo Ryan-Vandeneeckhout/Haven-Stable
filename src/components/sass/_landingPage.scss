@@ -20,3 +20,15 @@
     }
   }
 }
+
+.profileList {
+  @include UlNormalize;
+
+  .profileItem {
+    background-color: #3b5239;
+    color: white;
+    border-radius: 15px;
+    padding: 5%;
+    margin: 10% 0;
+  }
+}

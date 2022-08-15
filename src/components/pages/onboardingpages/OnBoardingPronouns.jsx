@@ -7,9 +7,11 @@ import OnBoardingSectionContainer from "../../wrappers/onboardingWrappers/OnBoar
 import InputLinked from "../../inputs/InputLinked";
 import ProgressBar from "../../inputs/ProgressBar";
 import EmailAndPasswordInput from "../../inputs/EmailAndPassInput";
+import { useRef } from "react";
 
 const OnBoardingPronouns = (props) => {
-    const PronounsText = "Type here for other options";
+  const PronounsText = "Type here for other options";
+  const pronounRef = useRef();
 
   return (
     <OnBoardingSectionContainer>
@@ -33,65 +35,51 @@ const OnBoardingPronouns = (props) => {
         <OnBoardingContentWrapper>
           <form>
             <div className="checkboxContainer">
-            <div className="acceptCondtions">
-              <input
-                type="checkbox"
-                className="checkbox"
-                id="conditions"
-                name="conditions"
-              />
-              <label htmlFor="conditions">
-                SHE/HER
-              </label>
+              <div className="acceptCondtions">
+                <input
+                  type="checkbox"
+                  className="checkbox"
+                  id="conditions"
+                  name="conditions"
+                />
+                <label htmlFor="conditions">SHE/HER</label>
+              </div>
+              <div className="acceptCondtions">
+                <input
+                  type="checkbox"
+                  className="checkbox"
+                  id="conditions"
+                  name="conditions"
+                />
+                <label htmlFor="conditions">HE/HIM</label>
+              </div>
+              <div className="acceptCondtions">
+                <input
+                  type="checkbox"
+                  className="checkbox"
+                  id="conditions"
+                  name="conditions"
+                />
+                <label htmlFor="conditions">THEY/THEM</label>
+              </div>
+              <div className="acceptCondtions">
+                <input
+                  type="checkbox"
+                  className="checkbox"
+                  id="conditions"
+                  name="conditions"
+                />
+                <label htmlFor="conditions">XE/XIM/XIRS</label>
+              </div>
             </div>
-            <div className="acceptCondtions">
-              <input
-                type="checkbox"
-                className="checkbox"
-                id="conditions"
-                name="conditions"
-              
-              />
-              <label htmlFor="conditions">
-                HE/HIM
-              </label>
-            </div>
-            <div className="acceptCondtions">
-              <input
-                type="checkbox"
-                className="checkbox"
-                id="conditions"
-                name="conditions"
-                
-              />
-              <label htmlFor="conditions">
-                THEY/THEM
-              </label>
-            </div>
-            <div className="acceptCondtions">
-              <input
-                type="checkbox"
-                className="checkbox"
-                id="conditions"
-                name="conditions"
-                
-              />
-              <label htmlFor="conditions">
-                XE/XIM/XIRS
-              </label>
-            </div>
-
-
-              
-            </div>
-         
-        <EmailAndPasswordInput
-          valueInput={PronounsText}
-          valueText={PronounsText}
-          setValue={props.setPronouns}
-          value={props.pronouns}
-        />
-      </form>
+            <EmailAndPasswordInput
+              valueInput={PronounsText}
+              valueText={PronounsText}
+              setValue={props.setPronouns}
+              value={props.pronouns}
+              InputRef={pronounRef}
+            />
+          </form>
         </OnBoardingContentWrapper>
         <OnBoardingContentWrapperBottom>
           <p className="pronounsPara">Note: You can always change it later.</p>

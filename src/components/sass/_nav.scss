@@ -1,0 +1,11 @@
+@import "./variables.scss";
+
+.navMenuProfilePage ul {
+  @include UlNormalize;
+  @include FlexRowCenter;
+  background-color: #1f3023;
+  color: white;
+  justify-content: space-between;
+  padding: 5%;
+  width: 100%;
+}

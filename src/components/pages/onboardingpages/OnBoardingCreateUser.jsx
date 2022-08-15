@@ -1,13 +1,13 @@
+import { useEffect } from "react";
+
 const OnBoardingCreateUser = (props) => {
   let body = props.sendUserData;
 
   let broswerErrorCheck = "";
-  props.passData();
 
-  const callFunction = () => {
+  useEffect(() => {
     LoadingScreenLoaded();
-    console.log(body);
-  };
+  }, []);
 
   const LoadingScreenLoaded = async () => {
     try {
@@ -36,7 +36,7 @@ const OnBoardingCreateUser = (props) => {
       props.setText("User Created, Welcome to Haven");
 
       setTimeout(function () {
-        props.setText("Engraving the details to the stone tablet");
+        props.setText("Success");
         
       }, 1000);
       setTimeout(function () {
@@ -59,7 +59,6 @@ const OnBoardingCreateUser = (props) => {
           </div>
           <div className="titleContainerLoadingScreen">
             <h2 className="loading">{props.text}</h2>
-            {callFunction()}
           </div>
         </div>
       </div>

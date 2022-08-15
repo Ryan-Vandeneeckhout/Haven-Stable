@@ -7,6 +7,7 @@ import InputLinked from "../../inputs/InputLinked";
 import ProgressBar from "../../inputs/ProgressBar";
 import { useState } from "react";
 import OnBoarding12QuestionsInput from "./OnBoarding12QuestionsInput";
+import { JingQuestionList } from "./JingQuestionList";
 
 const OnBoarding12Questions = (props) => {
   return (
@@ -33,7 +34,18 @@ const OnBoarding12Questions = (props) => {
             Show off who you are as a person by filling a couple of moments
             cards that will be showcased on your profile
           </p>
-          <OnBoarding12QuestionsInput />
+
+          <ul className="questionList">
+            {JingQuestionList.map((item, index) => {
+              return (
+                <OnBoarding12QuestionsInput
+                  key={index}
+                  question={item.Question}
+                  contentID={item.ContentID}
+                />
+              );
+            })}
+          </ul>
         </OnBoardingContentWrapper>
       </OnBoardingSectionWrapper>
     </OnBoardingSectionContainer>

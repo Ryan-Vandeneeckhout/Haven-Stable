@@ -1,6 +1,7 @@
 import "../sass/_landingPage.scss";
 import { useState, useEffect } from "react";
 import { AxiosGET } from "../axiosCalls/AxiosGET";
+import NavMenu from "../navigation/NavMenu";
 
 const UserProfileLandingPage = () => {
   const [activityItem, setActivityItem] = useState([]);
@@ -23,7 +24,7 @@ const UserProfileLandingPage = () => {
       return 0;
     });
     setActivityItem([...orderedNewest]);
-   // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const renderActvityItems = () => {
@@ -31,10 +32,10 @@ const UserProfileLandingPage = () => {
       return <p>Empty Acts</p>;
     } else {
       return (
-        <ul className="activityList">
+        <ul className="profileList">
           {activityItem.map((post, index) => (
-              <div className="activityItem" key={index}>
-                  <h1>{post.username}</h1>
+            <div className="profileItem" key={index}>
+              <h1>{post.username}</h1>
             </div>
           ))}
         </ul>
@@ -43,19 +44,22 @@ const UserProfileLandingPage = () => {
   };
 
   return (
-    <section className="landingPageSection">
-      <div className="wrapper10">
-        <div className="activityListContainer">
-          <AxiosGET
-            APICallUrl={"https://haven-nodejs.herokuapp.com/users"}
-            setActivityItem={setActivityItem}
-            setErrorAPI={setErrorAPI}
-            errorAPI={errorAPI}
-          />
-          {renderActvityItems()}
+    <>
+      <NavMenu />
+      <section className="landingPageSection">
+        <div className="wrapper10">
+          <div className="profileListContainer">
+            <AxiosGET
+              APICallUrl={"https://haven-nodejs.herokuapp.com/users"}
+              setActivityItem={setActivityItem}
+              setErrorAPI={setErrorAPI}
+              errorAPI={errorAPI}
+            />
+            {renderActvityItems()}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

@@ -1,6 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import NavMenu from "../navigation/NavMenu.jsx";
-import LandingPage from "../pages/LandingPage.jsx";
+import LandingPage from "../pages/usersignedin/LandingPage.jsx";
 import MyProfile from "../pages/MyProfile.js";
 import UserProfileLandingPage from "../pages/UserProfileLandingPage.jsx";
 import UserSearch from "../pages/UserSearch.js";
@@ -10,7 +9,6 @@ const UserSignInRouting = () => {
 
   return (
     <main>
-      <NavMenu/>
       <Routes>
         <Route extact path="/" element={<UserProfileLandingPage />} />
         <Route extact path="/createuser" element={<Navigate to="/" />} />
