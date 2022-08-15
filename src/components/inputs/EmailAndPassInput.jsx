@@ -22,6 +22,8 @@ export default function EmailAndPasswordInput(props) {
         value={props.value}
         onFocus={handleFocus}
         ref={props.InputRef}
+        min={props.min}
+        max={props.max}
       />
     </div>
   );

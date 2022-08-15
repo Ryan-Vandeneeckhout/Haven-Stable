@@ -9,7 +9,7 @@ import ProgressBar from "../../inputs/ProgressBar";
 import EmailAndPasswordInput from "../../inputs/EmailAndPassInput";
 
 const OnBoardingPronouns = (props) => {
-    const PronounsText = "Pronouns eg: He/Him";
+    const PronounsText = "Type here for other options";
 
   return (
     <OnBoardingSectionContainer>
@@ -28,10 +28,63 @@ const OnBoardingPronouns = (props) => {
             Linked={"/interests"}
           />
         </OnBoardingUpperContentWrapper>
-        <ProgressBar green={4} grey={3} />
-        <h2>Choose Your Pronouns</h2>
+        <ProgressBar setgreen={2} green={5} grey={1} />
+        <h2>What are your preferred pronouns?</h2>
         <OnBoardingContentWrapper>
-        <form>
+          <form>
+            <div className="checkboxContainer">
+            <div className="acceptCondtions">
+              <input
+                type="checkbox"
+                className="checkbox"
+                id="conditions"
+                name="conditions"
+              />
+              <label htmlFor="conditions">
+                SHE/HER
+              </label>
+            </div>
+            <div className="acceptCondtions">
+              <input
+                type="checkbox"
+                className="checkbox"
+                id="conditions"
+                name="conditions"
+              
+              />
+              <label htmlFor="conditions">
+                HE/HIM
+              </label>
+            </div>
+            <div className="acceptCondtions">
+              <input
+                type="checkbox"
+                className="checkbox"
+                id="conditions"
+                name="conditions"
+                
+              />
+              <label htmlFor="conditions">
+                THEY/THEM
+              </label>
+            </div>
+            <div className="acceptCondtions">
+              <input
+                type="checkbox"
+                className="checkbox"
+                id="conditions"
+                name="conditions"
+                
+              />
+              <label htmlFor="conditions">
+                XE/XIM/XIRS
+              </label>
+            </div>
+
+
+              
+            </div>
+         
         <EmailAndPasswordInput
           valueInput={PronounsText}
           valueText={PronounsText}
@@ -41,7 +94,7 @@ const OnBoardingPronouns = (props) => {
       </form>
         </OnBoardingContentWrapper>
         <OnBoardingContentWrapperBottom>
-          <p className="pronounsPara">You can always change them later.</p>
+          <p className="pronounsPara">Note: You can always change it later.</p>
         </OnBoardingContentWrapperBottom>
       </OnBoardingSectionWrapper>
     </OnBoardingSectionContainer>

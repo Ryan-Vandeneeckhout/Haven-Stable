@@ -1,8 +1,8 @@
 html {
   --headercolor: white;
   --fontColor: black;
-  --loginButtonColor: black;
-  --loginButtonFontColor: white;
+  --loginButtonColor: white;
+  --loginButtonFontColor: black;
   --signupButtonColor: #c0ff99;
   --signupButtonFontColor: black;
 }
@@ -81,17 +81,7 @@ html[data-theme="rainbow"] {
     text-shadow: 0.25em 0 0 black, 0.5em 0 0 black;
   }
 }
-.havenImage {
-  height: 300px;
-  width: 300px;
-  z-index: 1;
-  position: absolute;
-  bottom: 5%;
-  color: black;
-  left: 50%;
-  background-image: url("../../../public/assets/svg/signup.svg");
-  background-repeat: no-repeat;
-}
+
 .appWrapper {
   display: flex;
   flex-direction: row;
@@ -119,6 +109,14 @@ html[data-theme="rainbow"] {
       z-index: 2;
     }
   }
+}
+
+.checkbox {
+  margin-right: 15px;
+}
+
+.acceptCondtions {
+  margin-bottom: 5%;
 }
 @media only screen and (max-width: 625px) {
   .appWrapper {

@@ -6,7 +6,9 @@ const LoadingScreen = (props) => {
     <section className="LoadingScreenSection">
       <div className="wrapper10">
       <div className="truck">
-            <img src="./assets/svg/loading.svg" alt="a truck zooming by on the haven user creation page."/>
+          {props.success ? (<img src="./assets/svg/success.svg" alt="a truck zooming by on the haven user creation page." /> ) : (<img src="./assets/svg/loading.svg" alt="a truck zooming by on the haven user creation page." /> ) }
+          
+
           </div>
 
         <h3 className={`loadingScreenH3${props.error ? " errorConectionDatabase" : null}`}>

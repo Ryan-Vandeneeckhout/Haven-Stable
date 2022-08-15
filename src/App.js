@@ -19,6 +19,7 @@ function App() {
   const [loadingScreen, setLoadingScreen] = useState(true);
   const [user, setUser] = useState(null);
   const [error, setError] = useState(false);
+  const [success, setSuccess] = useState(false); 
   const [textAPIConnection, setTextAPIConnection] = useState("Connecting");
   const [DevMenuOpen, setDevMenuOpen] = useState(false);
 
@@ -47,6 +48,7 @@ function App() {
 
       setTimeout(function () {
         setTextAPIConnection("Welcome to Haven");
+        setSuccess(true);
       }, 2000);
 
       setTimeout(function () {
@@ -69,6 +71,7 @@ function App() {
           <LoadingScreen
             textAPIConnection={textAPIConnection}
             error={error}
+            success={success}
             isAuth={isAuth}
           />
         ) : (

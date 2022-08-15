@@ -49,8 +49,8 @@ const LoginPage = (props) => {
       emailRef.current.style.color = "red";
       emailRef.current.style.border = "red solid 2px";
     } else {
-        setsuccessAPI(true);
-        props.UserAuth(); 
+      setsuccessAPI(true);
+      props.UserAuth();
       navigate("/");
     }
   };
@@ -77,13 +77,16 @@ const LoginPage = (props) => {
         </div>
         <div className="middleContent">
           {errorAPI && (
-            <p className="errorAlert"><span className="errorIcon"/>Error please check your email and password again!</p>
+            <p className="errorAlert">
+              <span className="errorIcon" />
+              Error please check your email and password again!
+            </p>
           )}
           {successAPI && (
             <p>Success you will be redirected to the homepage shortly!</p>
           )}
 
-          <form onSubmit={HandleSubmit}>
+          <form className="textForm" onSubmit={HandleSubmit}>
             <EmailAndPasswordInput
               valueInput={EmailText}
               valueText={EmailText}
@@ -102,10 +105,14 @@ const LoginPage = (props) => {
             />
             <button>Log In</button>
           </form>
-              </div>
-              <p>Need an Account? Sign Up <Link to={"/signup"}><b>Here.</b></Link></p>
-              <p>Forgot Password?</p>
-              
+        </div>
+        <p className="paraAccount">
+          Need an Account? Sign Up{" "}
+          <Link to={"/signup"}>
+            <b>Here.</b>
+          </Link>
+        </p>
+        <p>Forgot Password?</p>
       </OnBoardingSectionWrapper>
     </OnBoardingSectionContainer>
   );

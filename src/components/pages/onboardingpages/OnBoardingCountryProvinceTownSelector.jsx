@@ -42,7 +42,7 @@ const OnBoardingCountryProvinceTownSelector = (props) => {
             Linked={"/pronouns"}
           />
         </OnBoardingUpperContentWrapper>
-        <ProgressBar green={3} grey={4} />
+        <ProgressBar setgreen={1} green={6} grey={1} />
         <h2>Where are you located?</h2>
         <OnBoardingContentWrapper>
           <form onSubmit={HandleSubmit}>

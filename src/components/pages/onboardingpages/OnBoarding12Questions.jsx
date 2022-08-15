@@ -1,23 +1,14 @@
 import OnBoardingContentWrapper from "../../wrappers/onboardingWrappers/OnBoardingContentWrapper";
-import OnBoardingContentWrapperBottom from "../../wrappers/onboardingWrappers/OnBoardingContentWrapperBottom";
 import OnBoardingSectionWrapper from "../../wrappers/onboardingWrappers/OnBoardingSectionWrapper";
 import OnBoardingUpperContentWrapper from "../../wrappers/onboardingWrappers/OnBoardingUpperContentWrapper";
 import OnBoardingSectionContainer from "../../wrappers/onboardingWrappers/OnBoardingSectionContainer";
 
 import InputLinked from "../../inputs/InputLinked";
 import ProgressBar from "../../inputs/ProgressBar";
-import OnBoardingAvatarimg from "./OnBoardingAvatarimg";
+import { useState } from "react";
+import OnBoarding12QuestionsInput from "./OnBoarding12QuestionsInput";
 
-const OnBoardingAvatars = (props) => {
-  let n = 16;
-  let array = Array.from({ length: 50 }, (v, k) => k * 10);
-  let shuffled = array.sort(function () {
-    return 0.5 - Math.random();
-  });
-
-  let AvatarMap = shuffled.slice(0, n);
-  console.log(AvatarMap);
-
+const OnBoarding12Questions = (props) => {
   return (
     <OnBoardingSectionContainer>
       <OnBoardingSectionWrapper>
@@ -26,29 +17,26 @@ const OnBoardingAvatars = (props) => {
             ButtonText={"Back"}
             ButtonClass={"backButton"}
             ButtonClassContainer={"upperButtonContainer"}
-            Linked={"/communityrules"}
+            Linked={"/interests"}
           />
           <InputLinked
             ButtonText={"Next"}
             ButtonClass={"nextButton"}
             ButtonClassContainer={"upperButtonContainer"}
-            Linked={"/createuser"}
+            Linked={"/birthday"}
           />
         </OnBoardingUpperContentWrapper>
-        <ProgressBar setgreen={7} green={0} grey={1} />
-        <h2>Avatars:</h2>
+        <ProgressBar setgreen={4} green={3} grey={1} />
+        <h2>12 Questions</h2>
         <OnBoardingContentWrapper>
-          <div className="Avatars">
-            {AvatarMap.map((item, index) => {
-              return <OnBoardingAvatarimg passData={props.passData} setAvatar={props.setAvatar} key={index} numbers={item} />;
-            })}
-          </div>
+          <p>
+            Show off who you are as a person by filling a couple of moments
+            cards that will be showcased on your profile
+          </p>
+          <OnBoarding12QuestionsInput />
         </OnBoardingContentWrapper>
-        <OnBoardingContentWrapperBottom>
-          <p>Pick a Cute Avatar to show your sense of style!</p>
-        </OnBoardingContentWrapperBottom>
       </OnBoardingSectionWrapper>
     </OnBoardingSectionContainer>
   );
 };
-export default OnBoardingAvatars;
+export default OnBoarding12Questions;

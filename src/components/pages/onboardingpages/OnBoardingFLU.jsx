@@ -23,7 +23,7 @@ const OnBoardingFLU = (props) => {
             ButtonText={"Back"}
             ButtonClass={"backButton"}
             ButtonClassContainer={"upperButtonContainer"}
-            Linked={"/birthday"}
+            Linked={"/signup"}
           />
           {props.username ? (
             <InputLinked
@@ -38,10 +38,10 @@ const OnBoardingFLU = (props) => {
             </div>
           )}
         </OnBoardingUpperContentWrapper>
-        <ProgressBar green={2} grey={5} />
+        <ProgressBar setgreen={0} green={7} grey={1} />
         <h2>Profile Settings</h2>
         <OnBoardingContentWrapper>
-          <form>
+          <form className="textForm">
             <EmailAndPasswordInput
               valueInput={"Username required..."}
               valueText={"Username Required"}
@@ -67,7 +67,7 @@ const OnBoardingFLU = (props) => {
           </form>
         </OnBoardingContentWrapper>
         <OnBoardingContentWrapperBottom>
-          <p>The creation of a username is required.</p>
+          <p className="paraAccount">The creation of a username is required.</p>
         </OnBoardingContentWrapperBottom>
       </OnBoardingSectionWrapper>
     </OnBoardingSectionContainer>

@@ -1,18 +1,20 @@
 .Bar {
   display: flex;
   justify-content: space-between;
-  padding: 10% 0;
+  padding: 5% 0;
+  padding-bottom: 15%;
   width: 35%;
   min-width: 100px;
 
   .dot {
-    height: 10px;
-    width: 10px;
+    height: 8px;
+    width: 8px;
   }
 }
 
 .grey {
   background-color: grey;
+  border-radius: 90%;
 }
 
 .green {

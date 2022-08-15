@@ -39,11 +39,11 @@ const OnBoardingInterests = (props) => {
             ButtonText={"Next"}
             ButtonClass={"nextButton"}
             ButtonClassContainer={"upperButtonContainer"}
-            Linked={"/avatars"}
+            Linked={"/gettoknowyou"}
           />
         </OnBoardingUpperContentWrapper>
-        <ProgressBar green={5} grey={2} />
-        <h2>Help Us Get to Know You!</h2>
+        <ProgressBar setgreen={3} green={4} grey={1} />
+        <h2>What are you interested in?</h2>
         <OnBoardingContentWrapper>
           <div className="interestsContainer">
             <ul>
@@ -62,7 +62,7 @@ const OnBoardingInterests = (props) => {
           </div>
         </OnBoardingContentWrapper>
         <OnBoardingContentWrapperBottom>
-          <p>Selecting tags helps the Haven search function match you with users with similar interests.</p>
+          <p className="paraAccount">Selecting tags helps the Haven search function match you with users with similar interests.</p>
         </OnBoardingContentWrapperBottom>
       </OnBoardingSectionWrapper>
     </OnBoardingSectionContainer>

@@ -1,44 +1,55 @@
 export const OnBoardingInterestsMap = [
 
     {
-        InterestName: "Volleyball",
+        InterestName: "entertainment",
     },
     {
-        InterestName: "School",
+        InterestName: "education",
     },
 
     {
-        InterestName: "Movies",
+        InterestName: "food",
     },
     {
-        InterestName: "Food",
+        InterestName: "sports",
     },
     {
-        InterestName: "Music",
+        InterestName: "music",
     },
     {
-        InterestName: "Hiking",
+        InterestName: "outdoor activities",
     },
     {
-        InterestName: "Travel",
+        InterestName: "travel",
     },
     {
-        InterestName: "Video Games",
+        InterestName: "gaming",
     },
     {
-        InterestName: "Dancing",
+        InterestName: "beauty",
     },
     {
-        InterestName: "Beauty",
+        InterestName: "science",
     },
     {
-        InterestName: "Baking",
+        InterestName: "arts & culture",
     },
 
     {
-        InterestName: "Reading",
+        InterestName: "shopping",
     },
     {
-        InterestName: "Self-Improvement",
+        InterestName: "volunteer",
     },
+
+    {
+        InterestName: "reading",
+    },
+    {
+        InterestName: "nights out",
+    },
+    {
+        InterestName: "anything",
+    },
+    
 ];

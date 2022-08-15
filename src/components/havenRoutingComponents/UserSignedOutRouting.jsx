@@ -12,6 +12,8 @@ import OnBoardingCreateUser from "../pages/onboardingpages/OnBoardingCreateUser.
 import OnBoardingBirthday from "../pages/onboardingpages/OnBoardingBirthday.jsx";
 import OnBoardingInterests from "../pages/onboardingpages/OnBoardingInterests.jsx";
 import OnBoardingPronouns from "../pages/onboardingpages/OnBoardingPronouns.jsx";
+import OnBoardingCommunityRules from "../pages/onboardingpages/OnBoardingCommunityRules.jsx";
+import OnBoarding12Questions from "../pages/onboardingpages/OnBoarding12Questions.jsx";
 
 const UserSignedOutInRouting = (props) => {
   const [text, setText] = useState("Creating User");
@@ -23,7 +25,7 @@ const UserSignedOutInRouting = (props) => {
   const [lastName, setLastName] = useState("");
   const [userName, setUserName] = useState("");
   const [pronouns, setPronouns] = useState("");
-  const [day, setDay] = useState("");
+  const [dayCal, setDay] = useState("");
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
 
@@ -37,7 +39,7 @@ const UserSignedOutInRouting = (props) => {
     username: userName,
     location: location,
     pronouns: pronouns,
-    birthday: day,
+    birthday: dayCal,
     month,
     year,
   };
@@ -53,7 +55,7 @@ const UserSignedOutInRouting = (props) => {
       username: userName,
       location: location,
       pronouns: pronouns,
-      birthday: day,
+      birthday: dayCal,
       month,
       year,
     };
@@ -161,12 +163,30 @@ const UserSignedOutInRouting = (props) => {
             element={
               <OnBoardingBirthday
                 passData={passData}
-                day={day}
+                dayCal={dayCal}
                 setDay={setDay}
                 month={month}
                 setMonth={setMonth}
                 year={year}
                 setYear={setYear}
+              />
+            }
+          />
+           <Route
+            extact
+            path="/communityrules"
+            element={
+              <OnBoardingCommunityRules
+                passData={passData}
+              />
+            }
+          />
+           <Route
+            extact
+            path="/gettoknowyou"
+            element={
+              <OnBoarding12Questions
+             
               />
             }
           />

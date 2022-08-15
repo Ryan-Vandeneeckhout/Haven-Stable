@@ -71,7 +71,7 @@ const SignUpPage = (props) => {
       if (broswerErrorCheck === true) {
         EmailRef.current.classList.add("successForm");
           setTimeout(function () {
-            navigate('/birthday')
+            navigate('/flu')
           }, 1000);
       } else {
         EmailRef.current.classList.add("errorForm");
@@ -84,7 +84,7 @@ const SignUpPage = (props) => {
     <OnBoardingSectionContainer >
       <OnBoardingSectionWrapper>
         <div className="upperContent">
-          <h2>Join Haven Today</h2>
+          <h2>Join haven today</h2>
           <p>
             By Continuing, you agree to our{" "}
             <Link to={"/terms"}>
@@ -94,7 +94,7 @@ const SignUpPage = (props) => {
           </p>
         </div>
         <div className="middleContent">
-          <form onSubmit={HandleSubmit}>
+          <form className="textForm" onSubmit={HandleSubmit}>
             {errorText ? <p className="errorAlert"><span className="errorIcon"/>Email is Unavailable. Please choose a Different Email!</p> : null
             }
             <EmailAndPasswordComponent onClick={handleMouseOut}
@@ -118,7 +118,7 @@ const SignUpPage = (props) => {
           </form>
         </div>
         <div className="bottomContent">
-          <p>Already have an Account?</p>
+          <p className="paraAccount">Already have an Account?</p>
           <p>
             Log in{" "}
             <b>
