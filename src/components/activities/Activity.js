@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const Activity = (props) => {
-    console.log(props)
+  const [replies, setReplies] = React.useState([]);
+  const getReplies = async () => {
+    try {
+      const res = await fetch("https://haven-nodejs.herokuapp.com/activities/:id/replies");
+      const parseRes = await res.json();
+      console.log(parseRes)
+      // setReplies(parseRes);
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  useEffect(() => {
+    getReplies()
+  }, [])
   return (
     <div>
         <h1>{props.props.title}</h1>
