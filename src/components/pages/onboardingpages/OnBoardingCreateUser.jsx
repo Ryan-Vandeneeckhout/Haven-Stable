@@ -1,15 +1,16 @@
-import { useEffect } from "react";
-
 const OnBoardingCreateUser = (props) => {
   let body = props.sendUserData;
 
   let broswerErrorCheck = "";
+  props.passData();
 
-  useEffect(() => {
+  const callFunction = () => {
     LoadingScreenLoaded();
-  }, []);
+
+  };
 
   const LoadingScreenLoaded = async () => {
+    console.log(body);
     try {
       const response = await fetch(
         "https://haven-nodejs.herokuapp.com/auth/register",
@@ -36,7 +37,7 @@ const OnBoardingCreateUser = (props) => {
       props.setText("User Created, Welcome to Haven");
 
       setTimeout(function () {
-        props.setText("Success");
+        props.setText("Engraving the details to the stone tablet");
         
       }, 1000);
       setTimeout(function () {
@@ -59,6 +60,7 @@ const OnBoardingCreateUser = (props) => {
           </div>
           <div className="titleContainerLoadingScreen">
             <h2 className="loading">{props.text}</h2>
+            {callFunction()}
           </div>
         </div>
       </div>
