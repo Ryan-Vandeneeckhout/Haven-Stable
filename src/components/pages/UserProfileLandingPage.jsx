@@ -35,15 +35,7 @@ const UserProfileLandingPage = () => {
         <ul className="profileList">
           {activityItem.map((post, index) => (
             <div className="profileItem" key={index}>
-              <div className="userProfileImage">
-                <img
-                  src={post.avatar_url}
-                  alt="User's avatar"
-                />
-              </div>
-              <h3>{post.username}</h3>
-              <h4>{post.pronouns}</h4>
-              <h4>{post.location}</h4>
+              <h1>{post.username}</h1>
             </div>
           ))}
         </ul>

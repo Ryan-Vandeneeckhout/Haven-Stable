@@ -14,7 +14,6 @@ import OnBoardingInterests from "../pages/onboardingpages/OnBoardingInterests.js
 import OnBoardingPronouns from "../pages/onboardingpages/OnBoardingPronouns.jsx";
 import OnBoardingCommunityRules from "../pages/onboardingpages/OnBoardingCommunityRules.jsx";
 import OnBoarding12Questions from "../pages/onboardingpages/OnBoarding12Questions.jsx";
-import { useRef } from "react";
 
 const UserSignedOutInRouting = (props) => {
   const [text, setText] = useState("Creating User");
@@ -29,10 +28,24 @@ const UserSignedOutInRouting = (props) => {
   const [dayCal, setDay] = useState("");
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
-  const sendUserData = useRef({}); 
+
+  let sendUserData = {
+    email: email,
+    password: password,
+    avatar_url: localStorage.avatar,
+    interests: JSON.stringify(tagsarray),
+    first_name: firstName,
+    last_name: lastName,
+    username: userName,
+    location: location,
+    pronouns: pronouns,
+    birthday: dayCal,
+    month,
+    year,
+  };
 
   const passData = () => {
-    sendUserData.current = {
+    const body = {
       email: email,
       password: password,
       avatar_url: localStorage.avatar,
@@ -46,8 +59,9 @@ const UserSignedOutInRouting = (props) => {
       month,
       year,
     };
-    console.log(sendUserData.current);
+    console.log(body);
   };
+
   return (
     <main>
       <div className="appWrapper">
@@ -125,7 +139,7 @@ const UserSignedOutInRouting = (props) => {
               <OnBoardingCreateUser
                 text={text}
                 setText={setText}
-                sendUserData={sendUserData.current}
+                sendUserData={sendUserData}
                 passData={passData}
                 UserAuth={props.UserAuth}
                 isAuth={props.isAuth}
