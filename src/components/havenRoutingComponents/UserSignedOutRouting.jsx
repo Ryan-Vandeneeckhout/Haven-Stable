@@ -17,121 +17,30 @@ import OnBoarding12Questions from "../pages/onboardingpages/OnBoarding12Question
 
 const UserSignedOutInRouting = (props) => {
   const [text, setText] = useState("Creating User");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [location, setLocation] = useState("");
-  const [tagsarray, setTagsArray] = useState([]);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [userName, setUserName] = useState("");
-  const [pronouns, setPronouns] = useState("");
   const [dayCal, setDay] = useState("");
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
 
   let sendUserData = {
-    email: email,
-    password: password,
-    avatar_url: localStorage.avatar,
-    interests: JSON.stringify(tagsarray),
-    first_name: firstName,
-    last_name: lastName,
-    username: userName,
-    location: location,
-    pronouns: pronouns,
-    birthday: dayCal,
-    month,
-    year,
+  
   };
 
   const passData = () => {
-    const body = {
-      email: email,
-      password: password,
-      avatar_url: localStorage.avatar,
-      interests: JSON.stringify(tagsarray),
-      first_name: firstName,
-      last_name: lastName,
-      username: userName,
-      location: location,
-      pronouns: pronouns,
-      birthday: dayCal,
-      month,
-      year,
-    };
-    console.log(body);
   };
 
   return (
     <main>
       <div className="appWrapper">
         <Routes>
-          <Route
-            extact
-            path="/"
-            element={
-              <LoginAndSignUpLandingPage h1={"User Signed Out LandingPage"} />
-            }
-          />
-          <Route
-            extact
-            path="/signup"
-            element={
-              <SignUpPage
-                passData={passData}
-                email={email}
-                setEmail={setEmail}
-                password={password}
-                setPassword={setPassword}
-              />
-            }
-          />
+          <Route extact path="/" element={ <LoginAndSignUpLandingPage />}/>
+          <Route extact path="/signup" element={<SignUpPage/>}/>
           <Route extact path="/terms" element={<TermsandConditionsNewUser />} />
-          <Route
-            extact
-            path="/login"
-            element={<LoginPage UserAuth={props.UserAuth} />}
-          />
-          <Route
-            extact
-            path="/location"
-            element={
-              <OnBoardingCountryProvinceTownSelector
-                location={location}
-                setLocation={setLocation}
-                passData={passData}
-              />
-            }
-          />
-          <Route
-            extact
-            path="/flu"
-            element={
-              <OnBoardingFLU
-                passData={passData}
-                setFirstName={setFirstName}
-                setLastName={setLastName}
-                setUserName={setUserName}
-                username={userName}
-              />
-            }
-          />
-          <Route
-            extact
-            path="/avatars"
-            element={<OnBoardingAvatars passData={passData} />}
-          />
-          <Route
-            extact
-            path="/interests"
-            element={
-              <OnBoardingInterests
-                tagsarray={tagsarray}
-                setTagsArray={setTagsArray}
-                passData={passData}
-              />
-            }
-          />
+          <Route extact path="/login" element={<LoginPage UserAuth={props.UserAuth} />}/>
+          <Route extact path="/location" element={<OnBoardingCountryProvinceTownSelector/>}/>
+          <Route extact path="/flu" element={<OnBoardingFLU/>}/>
+          <Route extact path="/avatars" element={<OnBoardingAvatars passData={passData} shuffled={props.shuffled} />}/>
+          <Route extact path="/interests" element={<OnBoardingInterests/>}/>
           <Route
             extact
             path="/createuser"
@@ -146,17 +55,7 @@ const UserSignedOutInRouting = (props) => {
               />
             }
           />
-          <Route
-            extact
-            path="/pronouns"
-            element={
-              <OnBoardingPronouns
-                setPronouns={setPronouns}
-                pronouns={pronouns}
-                passData={passData}
-              />
-            }
-          />
+          <Route extact path="/pronouns" element={<OnBoardingPronouns/>}/>
           <Route
             extact
             path="/birthday"

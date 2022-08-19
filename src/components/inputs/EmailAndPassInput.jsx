@@ -6,8 +6,8 @@ export default function EmailAndPasswordInput(props) {
 
   const handleFocus = (e) => {
     e.target.select()
-    let audio = document.getElementsByClassName("inputSelectedByUser");
-    for (let i = 0; i < audio.length; i++) audio[i].classList.remove("inputSelectedByUser");
+    let input = document.getElementsByClassName("inputSelectedByUser");
+    for (let i = 0; i < input.length; i++) input[i].classList.remove("inputSelectedByUser");
     props.InputRef.current.classList.add("inputSelectedByUser");
   }
   return (

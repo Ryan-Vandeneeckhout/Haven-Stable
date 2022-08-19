@@ -6,7 +6,7 @@ const LoginAndSignUpLandingPage = () => {
     <section className="LoginAndSignUpPageSection">
       <div className="wrapper10">
         <div className="contentContainer">
-          <h1>Welcome to Haven</h1>
+          <h1>Welcome to <span className="h1TitleEmphasis">haven</span></h1>
           <p>Haven is a safe network for members of LGBTQ+ to find friends.</p>
         </div>
         <div className="havenImageContainer">

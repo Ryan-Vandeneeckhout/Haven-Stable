@@ -108,7 +108,7 @@ const OnBoardingBirthday = (props) => {
             />
           ) : (
             <div className="buttonContainer upperButtonContainer">
-              <div className="nextButton grey">Next</div>
+              <div className="nextButton grey">Next <span className="imageButton"><img src="./assets/svg/arrow.svg" alt="Arrow"/></span></div>
             </div>
           )}
         </OnBoardingUpperContentWrapper>
@@ -144,7 +144,7 @@ const OnBoardingBirthday = (props) => {
                 setValue={props.setYear}
                 value={props.year}
                 InputRef={yearRef}
-                min={"1990"}
+                min={"1900"}
                 max={"2020"}
               />
             </div>

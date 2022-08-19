@@ -1,0 +1,45 @@
+.otherUserProfilePage {
+  background-color: #f2f8f4;
+  min-height: 100vh;
+
+  .profilePage {
+    padding: 5%;
+  }
+
+  .onBoardingUpperContent {
+    padding: 5%;
+    border-bottom: black solid 2px;
+    background-color: white;
+    .backButton {
+      display: flex;
+      flex-direction: row;
+      text-transform: uppercase;
+      padding: 10px;
+      font-size: 12px;
+      line-height: 120%;
+      letter-spacing: 1.25px;
+
+      span {
+        display: flex;
+      }
+      .textButton {
+        order: 2;
+      }
+
+      .imageButton img {
+        transform: rotate(90deg);
+        margin-right: 5px;
+        order: 1;
+      }
+    }
+  }
+}
+.imageProfile {
+  width: 60px;
+  height: 60px;
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
+}

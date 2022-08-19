@@ -1,50 +1,22 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const OnBoardingCreateUser = (props) => {
-  let body = props.sendUserData;
-
-  let broswerErrorCheck = "";
-
+  
+  const [text, setText] = useState(""); 
+  
   useEffect(() => {
     LoadingScreenLoaded();
   }, []);
 
-  const LoadingScreenLoaded = async () => {
-    try {
-      const response = await fetch(
-        "https://haven-nodejs.herokuapp.com/auth/register",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(body),
-        }
-      );
-      broswerErrorCheck = await response.json();
-      localStorage.setItem("token", broswerErrorCheck.token);
-      console.log(broswerErrorCheck);
-    } catch (error) {
-      props.setText("User Creation Failed");
-    }
-
-    if (broswerErrorCheck === "Missing Credentials") {
-      props.setText("Missing Credentials, Setting Haven Token as Empty, User Not Authorized by Database");
-    }
-      else if (broswerErrorCheck === "Server error") {
-      props.setText("Server Error")
-      }
-     else {
-      props.setText("User Created, Welcome to Haven");
-
-      setTimeout(function () {
-        props.setText("Success");
-        
-      }, 1000);
-      setTimeout(function () {
-        props.isAuth();
-        
-      }, 1000);
-
-    }
+  const LoadingScreenLoaded = () => {
+    setTimeout(function () {
+      setText("Success");
+      
+    }, 1000);
+    setTimeout(function () {
+      props.isAuth();
+      
+    }, 1000);
   };
 
   return (
@@ -58,7 +30,7 @@ const OnBoardingCreateUser = (props) => {
           <img src="./assets/svg/loadingcircle.svg" alt="loading circle for the creation of user profile"/>
           </div>
           <div className="titleContainerLoadingScreen">
-            <h2 className="loading">{props.text}</h2>
+            <h2 className="loading">{text}</h2>
           </div>
         </div>
       </div>

@@ -1,13 +1,17 @@
-import "../sass/_landingPage.scss";
+import "../../sass/_landingPage.scss";
 import { useState, useEffect } from "react";
-import { AxiosGET } from "../axiosCalls/AxiosGET";
-import NavMenu from "../navigation/NavMenu";
+import { AxiosGET } from "../../axiosCalls/AxiosGET";
+import NavMenu from "../../navigation/NavMenu";
+import ProfilePageLandingPage from "./ProfilePageLandingPage";
+import { Link } from "react-router-dom";
 
 const UserProfileLandingPage = () => {
   const [activityItem, setActivityItem] = useState([]);
   const [errorAPI, setErrorAPI] = useState("");
 
   console.log(activityItem);
+
+
 
   useEffect(() => {
     const copyOfActivityItem = activityItem;
@@ -32,13 +36,24 @@ const UserProfileLandingPage = () => {
       return <p>Empty Acts</p>;
     } else {
       return (
-        <ul className="profileList">
-          {activityItem.map((post, index) => (
-            <div className="profileItem" key={index}>
-              <h1>{post.username}</h1>
-            </div>
-          ))}
-        </ul>
+        <>
+          <h2>Discover friends</h2>
+          <ul className="profileList">
+            {activityItem.map((post, index) => (
+              <Link to={`/${post.id}`}>
+                <ProfilePageLandingPage
+                  username={post.username}
+                  avatar={post.avatar_url}
+                  Name={post.name}
+                  pronouns={post.pronouns}
+                  location={post.location}
+                  id={post.id}
+                  key={index}
+                />
+              </Link>
+            ))}
+          </ul>
+        </>
       );
     }
   };

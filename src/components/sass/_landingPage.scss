@@ -1,7 +1,7 @@
 @import "./variables.scss";
 
 .landingPageSection {
-  padding-top: 5%;
+  padding-top: 25%;
   max-width: 1000px;
 
   .wrapper10 {
@@ -28,7 +28,45 @@
     background-color: #3b5239;
     color: white;
     border-radius: 15px;
-    padding: 5%;
+    padding: 10%;
     margin: 10% 0;
+
+    .upperProfileCard {
+      justify-content: flex-start;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 5%;
+
+      .upperProfileCardUserInfomation {
+        margin-left: 32px;
+      }
+
+      h3 {
+        font-size: 24px;
+        line-height: 24px;
+        letter-spacing: 0.15px;
+        font-family: Roboto;
+      }
+
+      h4 {
+        font-size: 14px;
+        line-height: 17px;
+        font-family: Roboto;
+        text-transform: capitalize;
+      }
+    }
+
+    .imageProfile {
+      height: 60px;
+      width: 60px;
+      min-height: 60px;
+      min-width: 60px;
+
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
   }
 }

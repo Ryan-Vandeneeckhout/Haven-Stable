@@ -13,12 +13,12 @@ const OnBoarding12QuestionsInput = (props) => {
       {" "}
       {success ? (
         <div className="submittedQuestion">
-          <p>Submitted</p>
+          <p>Submitted------------------------------------------</p>
         </div>
       ) : (
         <form className="questionForm" onSubmit={handleSubmit}>
           <h2>{props.question}</h2>
-          <textarea
+          <textarea rows="5"
             name="Details"
             onChange={(event) => {
               setUserInputMessage(event.target.value);

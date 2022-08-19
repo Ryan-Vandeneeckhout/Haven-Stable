@@ -9,13 +9,9 @@ import ProgressBar from "../../inputs/ProgressBar";
 import OnBoardingAvatarimg from "./OnBoardingAvatarimg";
 
 const OnBoardingAvatars = (props) => {
-  let n = 16;
-  let array = Array.from({ length: 50 }, (v, k) => k * 10);
-  let shuffled = array.sort(function () {
-    return 0.5 - Math.random();
-  });
 
-  let AvatarMap = shuffled.slice(0, n);
+  let n = 9;
+  let AvatarMap = props.shuffled.slice(0, n);
   console.log(AvatarMap);
 
   return (
@@ -36,7 +32,8 @@ const OnBoardingAvatars = (props) => {
           />
         </OnBoardingUpperContentWrapper>
         <ProgressBar setgreen={7} green={0} grey={1} />
-        <h2>Avatars:</h2>
+        <h2>Pick an Avatar</h2>
+        <p>Note: you can always change the avatar later.</p>
         <OnBoardingContentWrapper>
           <div className="Avatars">
             {AvatarMap.map((item, index) => {

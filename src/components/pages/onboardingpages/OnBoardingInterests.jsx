@@ -10,21 +10,52 @@ import { OnBoardingInterestsMap } from "./OnBoardingInterestsMap";
 import TaglistIndivdualButton from "./TaglistIndividualButton";
 import useStateRef from "react-usestateref";
 
-const OnBoardingInterests = (props) => {
+const OnBoardingInterests = () => {
   const [, setTagValue, tagValueRef] = useStateRef(null);
+  const [tagsarray, setTagsArray, tagsArrayRef] = useStateRef([]);
 
   const tagArray = () => {
-    //If the Taglist Array Does not Contain the Selection
-    if (!props.tagsarray.includes(tagValueRef.current)) {
-      props.setTagsArray(() => [...props.tagsarray, tagValueRef.current]);
-      props.passData();
-     
+    if (!tagsarray.includes(tagValueRef.current)) {
+      setTagsArray(() => [...tagsarray, tagValueRef.current]);
+      callAPI(); 
+
     } else {
-      props.setTagsArray(props.tagsarray.filter((item) => item !== tagValueRef.current));
-      props.passData();
+      setTagsArray(tagsarray.filter((item) => item !== tagValueRef.current));
+      callAPI(); 
+
     }
-    console.log(props.tagsarray);
+    console.log(tagsArrayRef.current);
   };
+
+  const callAPI = () => {
+
+    const axios = require("axios");
+    const data = JSON.stringify({
+      interests: JSON.stringify(tagsArrayRef.current),
+    });
+
+    const config = {
+      method: "put",
+      url: "https://haven-nodejs.herokuapp.com/onboarding/interests",
+      headers: {
+        token: localStorage.getItem("token"),
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        if (error.response.data === "not authorized") {
+        }
+        console.log(error)
+      });
+
+
+  }
   return (
     <OnBoardingSectionContainer>
       <OnBoardingSectionWrapper>

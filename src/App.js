@@ -29,6 +29,10 @@ function App() {
     setUser((value) => !value);
   };
 
+  let array = Array.from({ length: 50 }, (v, k) => k * 10);
+  let shuffled = array.sort(function () {
+    return 0.5 - Math.random();
+  });
   const isAuth = async () => {
     try {
       const response = await fetch(
@@ -82,7 +86,8 @@ function App() {
               <UserSignedOutInRouting
                 UserAuth={UserAuth}
                 isAuth={isAuth}
-                user={user}
+                    user={user}
+                    shuffled={shuffled}
               />
             )}
           </>

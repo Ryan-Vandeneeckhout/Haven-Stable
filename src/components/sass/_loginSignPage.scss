@@ -14,6 +14,16 @@
     padding-top: 10%;
     padding-bottom: 10%;
     min-height: inherit;
+
+    h1 {
+      font-size: 34px;
+      letter-spacing: 0.25px;
+      .h1TitleEmphasis {
+        color: #1f3023;
+        font-family: Archivo;
+        font-size: 40px;
+      }
+    }
     .loginContainers {
       width: 100%;
       margin: 10% 0;
@@ -28,7 +38,9 @@
           border-radius: 15px;
           display: flex;
           flex-wrap: nowrap;
-          font-weight: 700;
+          font-weight: 500;
+          letter-spacing: 1.25px;
+          font-size: 12px;
           justify-content: center;
           text-transform: uppercase;
           padding: 8px 0;
@@ -37,13 +49,13 @@
           cursor: pointer;
         }
         .signInButton {
-          background-color: var(--signupButtonColor);
-          color: var(--signupButtonFontColor);
+          background-color: #1f3023;
+          color: white;
         }
         .logInButton {
           background-color: var(--loginButtonColor);
           color: var(--loginButtonFontColor);
-          border: solid black 2px;
+          outline: solid black 2px;
         }
         .logInButton:hover,
         .signInButton:hover,
@@ -82,19 +94,17 @@
     brightness(82%) contrast(128%);
 }
 .havenImageContainer {
-  height: 40vh;
-  outline: solid gold 2px;
+  height: 30vh;
   display: flex;
   justify-content: center;
   align-items: center;
   .havenImage {
-    height: 200px;
-    width: 200px;
+    height: 80%;
+    width: 50%;
+    transform: rotate(30deg);
     color: black;
-    outline: solid red 2px;
     background-image: url("../../../public/assets/svg/signup.svg");
     background-repeat: no-repeat;
-    transform: rotate(30deg);
   }
 }
 

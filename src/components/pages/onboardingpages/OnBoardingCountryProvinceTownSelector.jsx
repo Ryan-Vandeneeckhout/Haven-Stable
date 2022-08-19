@@ -15,15 +15,41 @@ import ProgressBar from "../../inputs/ProgressBar";
 const OnBoardingCountryProvinceTownSelector = (props) => {
   const checkboxRef = useRef(null);
   const [value, setValue] = useState("");
+  const [errorText, setErrorText] = useState(true); 
+  const [location, setLocation] = useState(""); 
   const options = useMemo(() => countryList().getData(), []);
 
   const changeHandler = (value) => {
     setValue(value);
-      props.setLocation(value);
-      props.passData(); 
+      setLocation(value);
   };
   const HandleSubmit = async (e) => {
     e.preventDefault();
+
+    const axios = require("axios");
+    const data = JSON.stringify({
+     location: location,
+    });
+
+    const config = {
+      method: "put",
+      url: "https://haven-nodejs.herokuapp.com/onboarding/location",
+      headers: {
+        token: localStorage.getItem("token"),
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        if (error.response.data === "not authorized") {
+          setErrorText(true);
+        }
+      });
   };
   return (
     <OnBoardingSectionContainer>

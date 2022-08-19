@@ -33,25 +33,30 @@
   }
 
   .nextButton {
-    background-color: #c0ff99;
+    background-color: #3b5239;
     display: flex;
     flex-direction: row;
     text-transform: uppercase;
-    padding: 8px;
+    padding: 10px;
+    width: 80px;
     border-radius: 15px;
     font-family: $fontBodyType;
+    color: white;
     font-size: 12px;
     line-height: 120%;
     letter-spacing: 1.25px;
 
     span {
       display: flex;
+      justify-content: center;
     }
 
     .imageButton img {
       transform: rotate(-90deg);
       margin-left: 5px;
-      height: 16px;
+      height: 14px;
+      filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg)
+        brightness(103%) contrast(103%);
     }
 
     a {
@@ -84,22 +89,29 @@
     .Avatars {
       display: flex;
       flex-direction: row;
+      justify-content: space-between;
       flex-wrap: wrap;
+      height: 50vh;
       .imgAvatar {
-        height: 60px;
-        width: 60px;
+        height: 65px;
+        width: 65px;
         margin: 4px;
         cursor: pointer;
+        outline: solid black 3px;
+        border-radius: 90%;
+        padding: 8px;
+        background-color: #e8e8e8;
       }
       img {
         height: 100%;
         width: 100%;
-        margin: 3px;
+
         cursor: pointer;
       }
-    }
-    .css-b62m3t-container {
-      margin-bottom: 10%;
+      .selectedAvatar {
+        outline: solid gold 3px;
+        border-radius: 90%;
+      }
     }
 
     .middleContent,
@@ -115,12 +127,14 @@
           }
 
           input {
+            background: #f2f8f4;
             border: none;
             border-radius: 15px;
-            outline: 1px solid grey;
-            padding: 15px;
+            color: grey;
+            height: 40px;
+            outline: 1px solid black;
+            padding: 10px;
             width: 100%;
-            background-color: white;
           }
           .errorForm {
             border: solid red 3px;
@@ -136,11 +150,13 @@
           }
         }
         button {
-          @include LightGreen;
+          background: #3b5239;
           border-radius: 15px;
           border: none;
+          color: white;
           font-size: 12px;
           font-weight: bolder;
+          height: 32px;
           letter-spacing: 1.25px;
           margin-top: 40px;
           padding: 8px;
@@ -201,22 +217,21 @@
       border: solid black 2px;
       margin: 4px;
       border-radius: 25px;
-      font-size: 12px;
-      font-weight: bold;
-      letter-spacing: 1.25px;
+      font-size: 14px;
+      font-family: Roboto;
+      letter-spacing: 0.25px;
       cursor: pointer;
     }
 
     .clickedTagButton {
-      background-color: #00b249;
+      background-color: #fee079;
     }
   }
 }
-.selectedAvatar {
-  outline: solid black 3px;
-}
+
 .pronounsPara {
-  margin-top: 15%;
+  font-size: 10px;
+  margin-top: 5%;
 }
 .checkboxContainer {
   margin: 10px;

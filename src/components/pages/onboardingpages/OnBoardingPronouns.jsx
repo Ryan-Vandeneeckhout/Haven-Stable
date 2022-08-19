@@ -7,11 +7,41 @@ import OnBoardingSectionContainer from "../../wrappers/onboardingWrappers/OnBoar
 import InputLinked from "../../inputs/InputLinked";
 import ProgressBar from "../../inputs/ProgressBar";
 import EmailAndPasswordInput from "../../inputs/EmailAndPassInput";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import CheckboxInput from "../../inputs/CheckboxInput";
 
-const OnBoardingPronouns = (props) => {
+const OnBoardingPronouns = () => {
   const PronounsText = "Type here for other options";
   const pronounRef = useRef();
+  const [pronouns, setPronouns] = useState("");
+
+  const handlePronouns = (e) => {
+    setPronouns(e.target.value);
+
+    const axios = require("axios");
+    const data = JSON.stringify({
+      pronouns: pronouns,
+    });
+
+    const config = {
+      method: "put",
+      url: "https://haven-nodejs.herokuapp.com/onboarding/pronouns",
+      headers: {
+        token: localStorage.getItem("token"),
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        if (error.response.data === "not authorized") {
+        }
+      });
+  };
 
   return (
     <OnBoardingSectionContainer>
@@ -33,50 +63,30 @@ const OnBoardingPronouns = (props) => {
         <ProgressBar setgreen={2} green={5} grey={1} />
         <h2>What are your preferred pronouns?</h2>
         <OnBoardingContentWrapper>
-          <form>
+          <form className="textForm">
             <div className="checkboxContainer">
-              <div className="acceptCondtions">
-                <input
-                  type="checkbox"
-                  className="checkbox"
-                  id="conditions"
-                  name="conditions"
-                />
-                <label htmlFor="conditions">SHE/HER</label>
-              </div>
-              <div className="acceptCondtions">
-                <input
-                  type="checkbox"
-                  className="checkbox"
-                  id="conditions"
-                  name="conditions"
-                />
-                <label htmlFor="conditions">HE/HIM</label>
-              </div>
-              <div className="acceptCondtions">
-                <input
-                  type="checkbox"
-                  className="checkbox"
-                  id="conditions"
-                  name="conditions"
-                />
-                <label htmlFor="conditions">THEY/THEM</label>
-              </div>
-              <div className="acceptCondtions">
-                <input
-                  type="checkbox"
-                  className="checkbox"
-                  id="conditions"
-                  name="conditions"
-                />
-                <label htmlFor="conditions">XE/XIM/XIRS</label>
-              </div>
+              <CheckboxInput
+                handleSubmitChange={handlePronouns}
+                valueText={"SHE/HER"}
+              />
+              <CheckboxInput
+                handleSubmitChange={handlePronouns}
+                valueText={"HE/HIM"}
+              />
+              <CheckboxInput
+                handleSubmitChange={handlePronouns}
+                valueText={"THEY/THEM"}
+              />
+              <CheckboxInput
+                handleSubmitChange={handlePronouns}
+                valueText={"XE/XIM/XIRS"}
+              />
             </div>
             <EmailAndPasswordInput
               valueInput={PronounsText}
               valueText={PronounsText}
-              setValue={props.setPronouns}
-              value={props.pronouns}
+              setValue={setPronouns}
+              value={pronouns}
               InputRef={pronounRef}
             />
           </form>
