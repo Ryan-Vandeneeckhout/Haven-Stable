@@ -1,6 +1,4 @@
 import React from "react";
-import UserCard from "../userProfile/UserCard";
-import Activity from "../activities/Activity";
 function MyProfile() {
   const [userInfo, setMyInfo] = React.useState({});
   const [userInterests, setUserInterests] = React.useState({});

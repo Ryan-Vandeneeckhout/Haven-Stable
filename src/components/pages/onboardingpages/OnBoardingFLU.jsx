@@ -70,26 +70,7 @@ const OnBoardingFLU = (props) => {
   return (
     <OnBoardingSectionContainer>
       <OnBoardingSectionWrapper>
-        <OnBoardingUpperContentWrapper>
-          <InputLinked
-            ButtonText={"Back"}
-            ButtonClass={"backButton"}
-            ButtonClassContainer={"upperButtonContainer"}
-            Linked={"/signup"}
-          />
-          {success ? (
-          <InputLinked
-            ButtonText={"Next"}
-            ButtonClass={"nextButton"}
-            ButtonClassContainer={"upperButtonContainer"}
-            Linked={"/location"}
-          />
-          ) : (
-            <div className="buttonContainer upperButtonContainer">
-              <div className="nextButton grey">Next <FontAwesomeIcon className="iconArrow" icon="fas fa-angle-right" /></div>
-            </div>
-          )}
-        </OnBoardingUpperContentWrapper>
+        
         <ProgressBar setgreen={0} green={7} grey={1} />
         {errorText ? (
           <p className="errorAlert">
@@ -124,6 +105,26 @@ const OnBoardingFLU = (props) => {
             settings.
           </p>
         </OnBoardingContentWrapperBottom>
+        <OnBoardingUpperContentWrapper>
+          <InputLinked
+            ButtonText={"Back"}
+            ButtonClass={"backButton"}
+            ButtonClassContainer={"upperButtonContainer"}
+            Linked={"/signup"}
+          />
+          {success ? (
+          <InputLinked
+            ButtonText={"Next"}
+            ButtonClass={"nextButton"}
+            ButtonClassContainer={"upperButtonContainer"}
+            Linked={"/location"}
+          />
+          ) : (
+            <div className="buttonContainer upperButtonContainer">
+              <div className="nextButton grey">Next <FontAwesomeIcon className="iconArrow" icon="fas fa-angle-right" /></div>
+            </div>
+          )}
+        </OnBoardingUpperContentWrapper>
       </OnBoardingSectionWrapper>
     </OnBoardingSectionContainer>
   );

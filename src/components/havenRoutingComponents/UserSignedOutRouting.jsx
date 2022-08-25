@@ -14,7 +14,6 @@ import OnBoardingInterests from "../pages/onboardingpages/OnBoardingInterests.js
 import OnBoardingPronouns from "../pages/onboardingpages/OnBoardingPronouns.jsx";
 import OnBoardingCommunityRules from "../pages/onboardingpages/OnBoardingCommunityRules.jsx";
 import OnBoarding12Questions from "../pages/onboardingpages/OnBoarding12Questions.jsx";
-import useStateRef from "react-usestateref";
 
 import { db } from "../firebase/config.js";
 import { updateDoc, doc } from "firebase/firestore";

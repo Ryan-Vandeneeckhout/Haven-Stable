@@ -1,5 +1,5 @@
 import MyLogo from "./MyLogo";
-import MyNav from "./MyNav";
+import MyNav from "./MyNav/MyNav";
 
 const MyFriends = () => {
 

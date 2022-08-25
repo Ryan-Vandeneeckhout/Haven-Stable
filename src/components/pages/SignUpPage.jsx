@@ -71,11 +71,7 @@ const SignUpPage = () => {
       localStorage.setItem("password", password);
       localStorage.setItem("username", username)
       
-      setTimeout(function () {
-        navigate('/flu');
-      }, 1000);
-    }
-      /* const axios = require('axios');
+       const axios = require('axios');
       const data = JSON.stringify({
         password: password,
         email: email,
@@ -110,7 +106,7 @@ const SignUpPage = () => {
        }
       });
 
-    } */
+    } 
   };
   return (
     <OnBoardingSectionContainer>

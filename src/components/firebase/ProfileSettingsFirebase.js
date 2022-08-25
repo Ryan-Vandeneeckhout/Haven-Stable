@@ -8,8 +8,8 @@ export default function ProfileSettingsFirebase() {
     return databaseFirestore ? (
       <>
          <h2>Welcome to Haven, here are some people who joined us just like you!</h2>
-        {databaseFirestore.map((post) => (
-          <div className="userInfomationFirebase">
+        {databaseFirestore.map((post, index) => (
+          <div className="userInfomationFirebase" key={index}>
             <ProfileCardLandingPage username={post.username} interests={post.interests} pronouns={post.pronouns} dateMoment={post.timeMomentCreated} avatar={post.avatar} moments={post.moments} location={post.location} uid={post.uid} />
           </div>
         ))}
