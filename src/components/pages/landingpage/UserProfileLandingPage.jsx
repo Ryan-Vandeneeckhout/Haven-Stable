@@ -4,14 +4,13 @@ import { AxiosGET } from "../../axiosCalls/AxiosGET";
 import NavMenu from "../../navigation/NavMenu";
 import ProfilePageLandingPage from "./ProfilePageLandingPage";
 import { Link } from "react-router-dom";
+import ProfileSettingsFirebase from "../../firebase/ProfileSettingsFirebase";
 
 const UserProfileLandingPage = () => {
   const [activityItem, setActivityItem] = useState([]);
   const [errorAPI, setErrorAPI] = useState("");
 
   console.log(activityItem);
-
-
 
   useEffect(() => {
     const copyOfActivityItem = activityItem;
@@ -62,15 +61,16 @@ const UserProfileLandingPage = () => {
     <>
       <NavMenu />
       <section className="landingPageSection">
-        <div className="wrapper10">
+        <div className="wrapper5">
           <div className="profileListContainer">
-            <AxiosGET
+            <ProfileSettingsFirebase/>
+            {/* <AxiosGET
               APICallUrl={"https://haven-nodejs.herokuapp.com/users"}
               setActivityItem={setActivityItem}
               setErrorAPI={setErrorAPI}
               errorAPI={errorAPI}
-            />
-            {renderActvityItems()}
+            /> */}
+            {/* {renderActvityItems()} */}
           </div>
         </div>
       </section>

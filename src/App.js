@@ -9,10 +9,10 @@ import "./components/sass/_app.scss";
 import "./components/sass/_setup.scss";
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faBars, faTimes, faAngleUp, faPlay, faHandshakeAlt, faMobileAlt, faUniversalAccess, faPause, faAngleDown, faMusic, faEye, faStar, faDownload, faBuildingColumns, faArrowRightFromBracket, faDatabase, faBug} from '@fortawesome/free-solid-svg-icons'
+import { faBars, faTimes, faAngleUp, faPlay, faHandshakeAlt, faMobileAlt, faUniversalAccess, faPause, faAngleDown, faMusic, faEye, faStar, faAngleRight, faAngleLeft, faArrowRight, faDownload, faBuildingColumns, faArrowRightFromBracket, faDatabase, faBug} from '@fortawesome/free-solid-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 
-library.add( fab, faBars, faAngleUp, faHandshakeAlt, faMobileAlt, faUniversalAccess, faPause, faPlay, faTimes, faDownload, faEye, faAngleDown, faMusic, faBuildingColumns, faArrowRightFromBracket, faDatabase, faStar, faBug);
+library.add( fab, faBars, faAngleUp, faArrowRight, faHandshakeAlt, faMobileAlt, faUniversalAccess, faPause, faPlay, faTimes, faDownload, faEye, faAngleDown, faMusic, faBuildingColumns, faArrowRightFromBracket, faAngleRight, faAngleLeft, faDatabase, faStar, faBug);
 
 
 function App() {
@@ -29,12 +29,8 @@ function App() {
     setUser((value) => !value);
   };
 
-  let array = Array.from({ length: 50 }, (v, k) => k * 10);
-  let shuffled = array.sort(function () {
-    return 0.5 - Math.random();
-  });
   const isAuth = async () => {
-    try {
+   /*  try {
       const response = await fetch(
         "https://haven-nodejs.herokuapp.com/auth/is-verified",
         {
@@ -55,13 +51,13 @@ function App() {
         setSuccess(true);
       }, 2000);
 
-      setTimeout(function () {
+      setTimeout(function () { */
         setLoadingScreen(false);
-      }, 1000);
+ /*      }, 1000);
     } catch (error) {
       setTextAPIConnection("Connection Failed, Please Try Again");
       setError(true);
-    }
+    } */
   };
 
   useEffect(() => {
@@ -87,7 +83,6 @@ function App() {
                 UserAuth={UserAuth}
                 isAuth={isAuth}
                     user={user}
-                    shuffled={shuffled}
               />
             )}
           </>

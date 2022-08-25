@@ -7,16 +7,35 @@ import OnBoardingSectionContainer from "../../wrappers/onboardingWrappers/OnBoar
 import InputLinked from "../../inputs/InputLinked";
 import ProgressBar from "../../inputs/ProgressBar";
 import EmailAndPasswordInput from "../../inputs/EmailAndPassInput";
-import { useRef, useState } from "react";
-import CheckboxInput from "../../inputs/CheckboxInput";
+
+import { useRef } from "react";
+import useStateRef from "react-usestateref";
+
+import { db } from "../../firebase/config";
+import { doc, updateDoc } from "firebase/firestore";
+import { useAuthContext } from "../../firebase/useAuthContext";
+import { useState } from "react";
 
 const OnBoardingPronouns = () => {
   const PronounsText = "Type here for other options";
-  const pronounRef = useRef();
-  const [pronouns, setPronouns] = useState("");
+  const customRef = useRef();
+  const [pronouns, setPronouns, pronounsRef] = useStateRef([]);
+  const [pronounsCustom, setPronounCustom] = useState(""); 
+
+  const { user } = useAuthContext();
 
   const handlePronouns = (e) => {
-    setPronouns(e.target.value);
+    if (!pronouns.includes(e.target.value)) {
+      setPronouns([...pronouns, { pronoun: e.target.value }]);
+    } else {
+      setPronouns(pronouns.filter((item) => item !== e.target.value));
+
+      if (pronouns.length === 0 || pronouns === []) {
+        setPronouns([]);
+      }
+      console.log(pronounsRef.current);
+    }
+    writeUserData();
 
     const axios = require("axios");
     const data = JSON.stringify({
@@ -43,6 +62,12 @@ const OnBoardingPronouns = () => {
       });
   };
 
+  const writeUserData = async () => {
+    await updateDoc(doc(db, `HavenProfileSettings`, `${user.uid}`), {
+      pronouns: pronounsRef.current,
+      pronounsCustom: customRef.current.value, 
+    });
+  };
   return (
     <OnBoardingSectionContainer>
       <OnBoardingSectionWrapper>
@@ -65,29 +90,55 @@ const OnBoardingPronouns = () => {
         <OnBoardingContentWrapper>
           <form className="textForm">
             <div className="checkboxContainer">
-              <CheckboxInput
-                handleSubmitChange={handlePronouns}
-                valueText={"SHE/HER"}
-              />
-              <CheckboxInput
-                handleSubmitChange={handlePronouns}
-                valueText={"HE/HIM"}
-              />
-              <CheckboxInput
-                handleSubmitChange={handlePronouns}
-                valueText={"THEY/THEM"}
-              />
-              <CheckboxInput
-                handleSubmitChange={handlePronouns}
-                valueText={"XE/XIM/XIRS"}
-              />
+              <div className="acceptCondtions">
+                <input
+                  type="checkbox"
+                  className="checkbox"
+                  name="conditions"
+                  value="SHE/HER"
+                  onChange={handlePronouns}
+                />
+                <label htmlFor="conditions">SHE/HER</label>
+              </div>
+
+              <div className="acceptCondtions">
+                <input
+                  type="checkbox"
+                  className="checkbox"
+                  name="conditions"
+                  value="HE/HIM"
+                  onChange={handlePronouns}
+                />
+                <label htmlFor="conditions">HE/HIM</label>
+              </div>
+
+              <div className="acceptCondtions">
+                <input
+                  type="checkbox"
+                  className="checkbox"
+                  name="conditions"
+                  value="THEY/THEM"
+                  onChange={handlePronouns}
+                />
+                <label htmlFor="conditions">THEY/THEM</label>
+              </div>
+              <div className="acceptCondtions">
+                <input
+                  type="checkbox"
+                  className="checkbox"
+                  name="conditions"
+                  value="XE/XIM/XIRS"
+                  onChange={handlePronouns}
+                />
+                <label htmlFor="conditions">XE/XIM/XIRS</label>
+              </div>
             </div>
             <EmailAndPasswordInput
               valueInput={PronounsText}
               valueText={PronounsText}
-              setValue={setPronouns}
-              value={pronouns}
-              InputRef={pronounRef}
+              setValue={setPronounCustom}
+              value={pronounsCustom}
+              InputRef={customRef}
             />
           </form>
         </OnBoardingContentWrapper>

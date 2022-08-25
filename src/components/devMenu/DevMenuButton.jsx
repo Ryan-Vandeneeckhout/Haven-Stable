@@ -1,7 +1,27 @@
+import { useLogout } from "../firebase/useLogout";
+
 const DevMenuButton = (props) => {
 /*   const DevMenuOpen = () => {
     props.setDevMenuOpen((value) => !value);
   }; */
+  const { logout } = useLogout();
+
+  const UserState = () => {
+
+    if (props.user) {
+      
+      logout(); 
+      props.UserAuth(); 
+    }
+
+    else {
+      props.UserAuth(); 
+
+    }
+  }
+
+
+
   return (
     <div className="DevMenuButtonContainer">
      {/*  <button className="openCloseButton" onClick={DevMenuOpen}>
@@ -9,7 +29,7 @@ const DevMenuButton = (props) => {
       </button> */}
       <button
         className={`userSwitchAuthButton${props.user ? " Green" : " Red"}`}
-        onClick={props.UserAuth}
+        onClick={UserState}
       >
         {props.user ? "User True" : "User False"}{" "}
       </button>

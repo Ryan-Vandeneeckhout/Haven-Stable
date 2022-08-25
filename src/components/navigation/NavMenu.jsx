@@ -6,15 +6,15 @@ const NavMenu = () => {
     <nav className="navMenuProfilePage">
       <ul>
         <li>
-          <Link className="havenTitleNav" to="/">haven</Link>
+          <Link className="havenTitleNav" to="/">
+            haven
+          </Link>
         </li>
         <div className="userSettings">
-
           <li className="profilePicture">
-            <Link to="/myprofile"><img src="./assets/profileAvatars/profileDefault.png" /></Link>
-          </li>
-          <li >
-          <img src="./assets/svg/slider.svg" />
+            <Link to="/myprofile">
+              <img src="./assets/profileAvatars/profileDefault.png" />
+            </Link>
           </li>
         </div>
       </ul>

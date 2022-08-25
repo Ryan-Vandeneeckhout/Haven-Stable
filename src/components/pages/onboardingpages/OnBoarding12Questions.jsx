@@ -6,10 +6,41 @@ import OnBoardingSectionContainer from "../../wrappers/onboardingWrappers/OnBoar
 import InputLinked from "../../inputs/InputLinked";
 import ProgressBar from "../../inputs/ProgressBar";
 import { useState } from "react";
+import useStateRef from "react-usestateref";
 import OnBoarding12QuestionsInput from "./OnBoarding12QuestionsInput";
 import { JingQuestionList } from "./JingQuestionList";
 
-const OnBoarding12Questions = (props) => {
+import { db } from "../../firebase/config";
+import { doc, updateDoc } from "firebase/firestore";
+import { useAuthContext } from "../../firebase/useAuthContext";
+
+const OnBoarding12Questions = () => {
+  
+  const [userInputMessage, setUserInputMessage] = useState("");
+  const [question, setQuestion] = useState(""); 
+  const [tagsarray, setTagsArray, tagsArrayRef] = useStateRef([]);
+  const [, setTagValue, tagValueRef] = useStateRef(null);
+
+  const date = new Date().toJSON().slice(0, 10);
+  const { user } = useAuthContext();
+  const pushData = () => {
+
+    setTagValue({ question: question, answer: userInputMessage }); 
+    
+    setTagsArray(() => [...tagsarray, tagValueRef.current]);
+
+    console.log(tagsArrayRef.current);
+    writeUserData();
+  }
+
+  const writeUserData = async () => {
+    await updateDoc(doc(db, `HavenProfileSettings`, `${user.uid}`), {
+      moments: tagsArrayRef.current,
+      timeMomentCreated: date,
+    });
+  };
+
+
   return (
     <OnBoardingSectionContainer>
       <OnBoardingSectionWrapper>
@@ -37,7 +68,7 @@ const OnBoarding12Questions = (props) => {
           <ul className="questionList">
             {JingQuestionList.slice(0, 3).map((item, index) => {
               return (
-                <OnBoarding12QuestionsInput
+                <OnBoarding12QuestionsInput setUserInputMessage={setUserInputMessage} userInputMessage={userInputMessage} setQuestion={setQuestion} handleMoments={writeUserData} pushData={pushData}
                   key={index}
                   question={item.Question}
                   contentID={item.ContentID}

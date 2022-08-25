@@ -8,6 +8,7 @@ import InputLinked from "../inputs/InputLinked";
 import OnBoardingSectionWrapper from "../wrappers/onboardingWrappers/OnBoardingSectionWrapper";
 import OnBoardingUpperContentWrapper from "../wrappers/onboardingWrappers/OnBoardingUpperContentWrapper";
 import OnBoardingSectionContainer from "../wrappers/onboardingWrappers/OnBoardingSectionContainer";
+import { useLogin } from "../firebase/useLogin";
 
 const LoginPage = (props) => {
   const [email, setEmail] = useState("");
@@ -19,14 +20,16 @@ const LoginPage = (props) => {
   const passwordRef = useRef(null);
   const emailRef = useRef(null);
   const navigate = useNavigate();
+  const { login } = useLogin();
 
   let broswerErrorCheck = "";
 
   const HandleSubmit = async (e) => {
+    login(email, password); 
     e.preventDefault();
+    
     try {
       const body = { email: email, password: password };
-      console.log(body);
       const response = await fetch(
         "https://haven-nodejs.herokuapp.com/auth/login",
         {
@@ -57,20 +60,9 @@ const LoginPage = (props) => {
   return (
     <OnBoardingSectionContainer>
       <OnBoardingSectionWrapper>
-        <OnBoardingUpperContentWrapper>
-          <div className="havenLogo">
-            <img
-              src="./assets/favicons/Haven_Favicon_Light.svg"
-              alt="Haven Icon"
-            />
-          </div>
-          <InputLinked
-            ButtonText={"Back"}
-            ButtonClass={"backButton"}
-            ButtonClassContainer={"backButtonContainer"}
-            Linked={"/"}
-          />
-        </OnBoardingUpperContentWrapper>
+      <div className="upperLogo">
+        <h2 className="Logo">haven</h2>
+      </div>
         <div className="upperContent">
           <h2>Welcome Back</h2>
           <p>Log in to continue.</p>
@@ -114,6 +106,14 @@ const LoginPage = (props) => {
         </p>
         <p>Forgot Password?</p>
       </OnBoardingSectionWrapper>
+      <OnBoardingUpperContentWrapper>
+          <InputLinked
+            ButtonText={"Back"}
+            ButtonClass={"backButton"}
+            ButtonClassContainer={"backButtonContainer"}
+            Linked={"/"}
+          />
+        </OnBoardingUpperContentWrapper>
     </OnBoardingSectionContainer>
   );
 };

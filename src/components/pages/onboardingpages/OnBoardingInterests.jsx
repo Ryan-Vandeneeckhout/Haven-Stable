@@ -9,23 +9,35 @@ import ProgressBar from "../../inputs/ProgressBar";
 import { OnBoardingInterestsMap } from "./OnBoardingInterestsMap";
 import TaglistIndivdualButton from "./TaglistIndividualButton";
 import useStateRef from "react-usestateref";
+import { db } from "../../firebase/config";
+import { updateDoc, doc } from "firebase/firestore";
+import { useAuthContext } from "../../firebase/useAuthContext";
 
 const OnBoardingInterests = () => {
   const [, setTagValue, tagValueRef] = useStateRef(null);
   const [tagsarray, setTagsArray, tagsArrayRef] = useStateRef([]);
+  const { user } = useAuthContext();
 
   const tagArray = () => {
     if (!tagsarray.includes(tagValueRef.current)) {
       setTagsArray(() => [...tagsarray, tagValueRef.current]);
       callAPI(); 
+      writeUserData();
 
     } else {
       setTagsArray(tagsarray.filter((item) => item !== tagValueRef.current));
       callAPI(); 
-
+      writeUserData();
     }
     console.log(tagsArrayRef.current);
   };
+
+
+  const writeUserData = async () => {
+    await updateDoc(doc(db, `HavenProfileSettings`, `${user.uid}`), {
+      interests: tagsArrayRef.current,
+    });
+};
 
   const callAPI = () => {
 

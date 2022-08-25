@@ -4,24 +4,24 @@ import InputLinked from "../inputs/InputLinked.jsx";
 const LoginAndSignUpLandingPage = () => {
   return (
     <section className="LoginAndSignUpPageSection">
-      <div className="wrapper10">
+      <div className="upperLogo">
+        <h2 className="Logo">haven</h2>
+      </div>
+      <div className="wrapper5">
         <div className="contentContainer">
-          <h1>Welcome to <span className="h1TitleEmphasis">haven</span></h1>
-          <p>Haven is a safe network for members of LGBTQ+ to find friends.</p>
-        </div>
-        <div className="havenImageContainer">
-          <div className="havenImage"/>
+          <h1><span className="h1TitleEmphasis">haven</span></h1>
+          <p>a moments journey for members of the LGBTQ+ community to find friends.</p>
         </div>
         <div className="loginContainers">
         <InputLinked
-            ButtonText={"Sign Up"}
+            ButtonText={"sign Up"}
             ButtonClass={"signInButton"}
             ButtonClassContainer={"signInLandingPageButton"}
             Linked={"/signup"}
             Show={"hidden"}
           />
           <InputLinked
-            ButtonText={"Log In"}
+            ButtonText={"log In"}
             Linked={"/login"}
             ButtonClass={"logInButton"}
             ButtonClassContainer={"logInLandingPageButton"}

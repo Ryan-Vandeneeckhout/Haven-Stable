@@ -1,13 +1,14 @@
 import { useState } from "react";
 
 const OnBoarding12QuestionsInput = (props) => {
-  const [userInputMessage, setUserInputMessage] = useState("");
   const [success, setSuccess] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleState = (e) => {
     e.preventDefault();
     setSuccess(true);
+    props.pushData();
   };
+
   return (
     <>
       {" "}
@@ -16,18 +17,21 @@ const OnBoarding12QuestionsInput = (props) => {
           <p>Submitted------------------------------------------</p>
         </div>
       ) : (
-        <form className="questionForm" onSubmit={handleSubmit}>
+        <form className="questionForm" onSubmit={handleState}>
           <h2>{props.question}</h2>
-          <textarea rows="5"
+          <textarea
+            rows="5"
             name="Details"
             onChange={(event) => {
-              setUserInputMessage(event.target.value);
+              props.setUserInputMessage(event.target.value);
+              props.setQuestion(props.question);
             }}
-            value={userInputMessage}
             className="message"
             placeholder="Details"
           ></textarea>
-          <button type="submit" className="submit" value={props.contentID}>Submit</button>
+          <button type="submit" className="submit" value={props.contentID}>
+            Submit
+          </button>
         </form>
       )}
     </>

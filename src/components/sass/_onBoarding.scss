@@ -8,75 +8,95 @@
   min-height: 100vh;
   max-width: 500px;
   min-width: 350px;
-  .backButton {
+  justify-content: space-between;
+  padding-bottom: 5%;
+
+  .onBoardingUpperContent {
     display: flex;
     flex-direction: row;
-    text-transform: uppercase;
-    padding: 10px;
-    font-family: $fontBodyType;
-    font-size: 12px;
-    line-height: 120%;
-    letter-spacing: 1.25px;
-
-    span {
+    width: 100%;
+    padding: 0 15%;
+    justify-content: space-between;
+    .backButton {
       display: flex;
-    }
-    .textButton {
-      order: 2;
-    }
+      flex-direction: row;
+      text-transform: uppercase;
+      padding: 10px;
+      font-family: $fontBodyType;
+      font-size: 12px;
+      line-height: 120%;
+      letter-spacing: 1.25px;
 
-    .imageButton img {
-      transform: rotate(90deg);
-      margin-right: 5px;
-      order: 1;
+      span {
+        display: flex;
+      }
+      .textButton {
+        order: 2;
+      }
+
+      .imageButton .iconArrow {
+        transform: rotate(180deg);
+        margin-right: 5px;
+        order: 1;
+        font-size: 16px;
+      }
     }
   }
 
+  .communityRules {
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+    font-weight: 400;
+  }
   .nextButton {
-    background-color: #3b5239;
+    background-color: #c3e8bd;
     display: flex;
     flex-direction: row;
     text-transform: uppercase;
+    align-content: center;
+    justify-content: center;
     padding: 10px;
     width: 80px;
-    border-radius: 15px;
     font-family: $fontBodyType;
-    color: white;
+    color: black;
     font-size: 12px;
     line-height: 120%;
     letter-spacing: 1.25px;
+    cursor: pointer;
 
     span {
       display: flex;
       justify-content: center;
     }
 
-    .imageButton img {
-      transform: rotate(-90deg);
+    .iconArrow {
+      transform: rotate(0deg);
+      color: black;
       margin-left: 5px;
       height: 14px;
-      filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg)
-        brightness(103%) contrast(103%);
     }
 
     a {
       text-decoration: none;
     }
   }
-
-  .buttonContainer {
-    a {
-      text-decoration: none;
-    }
-    a:hover {
-      color: black;
-    }
+  .titleOnboardingh2 {
+    width: 100%;
+    padding: 0 5%;
+    text-align: center;
+  }
+  .tips {
+    text-transform: uppercase;
+    font-size: 10px;
+    width: 100%;
+    text-align: center;
   }
   .grey {
-    background-color: grey;
+    background-color: #dedede;
   }
   .onBoardingSectionWrapper {
-    padding: 10% 15%;
+    padding: 5% 15%;
     width: 100%;
 
     .onBoardingUpperContent {
@@ -91,15 +111,13 @@
       flex-direction: row;
       justify-content: space-between;
       flex-wrap: wrap;
-      height: 50vh;
+      height: 100%;
       .imgAvatar {
-        height: 65px;
-        width: 65px;
-        margin: 4px;
+        height: 60px;
+        width: 60px;
+        margin: 5%;
         cursor: pointer;
-        outline: solid black 3px;
         border-radius: 90%;
-        padding: 8px;
         background-color: #e8e8e8;
       }
       img {

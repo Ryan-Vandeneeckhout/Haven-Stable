@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
-
+import { useSignup } from "../firebase/useSignup.js";
 import OnBoardingSectionWrapper from "../wrappers/onboardingWrappers/OnBoardingSectionWrapper";
 import OnBoardingSectionContainer from "../wrappers/onboardingWrappers/OnBoardingSectionContainer";
 
@@ -12,11 +12,11 @@ const SignUpPage = () => {
   const [confirmpassword, setConfirmPassword] = useState("");
   const [errorAPI, setErrorPassword] = useState("");
   const [passWordError, setPassWordError] = useState(false);
+  const [username, setUserName] = useState(""); 
 
-  const [username, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const { signup } = useSignup();
   const ConfirmPassWordText = "Confirm Password";
   const [errorText, setErrorText] = useState(false);
 
@@ -65,8 +65,17 @@ const SignUpPage = () => {
       passwordRef.current.classList.add("successForm");
       confirmPasswordRef.current.classList.add("successForm");
       setPassWordError(false);
-  
-      const axios = require('axios');
+      
+      signup(email, password, username);
+      localStorage.setItem("email", email);
+      localStorage.setItem("password", password);
+      localStorage.setItem("username", username)
+      
+      setTimeout(function () {
+        navigate('/flu');
+      }, 1000);
+    }
+      /* const axios = require('axios');
       const data = JSON.stringify({
         password: password,
         email: email,
@@ -87,7 +96,7 @@ const SignUpPage = () => {
         
         emailRef.current.classList.add("successForm");
         setTimeout(function () {
-          navigate('/flu')
+          navigate('/flu');
         }, 1000);
 
       })
@@ -100,8 +109,8 @@ const SignUpPage = () => {
           console.log("Servor error check logs")
        }
       });
-      
-    }
+
+    } */
   };
   return (
     <OnBoardingSectionContainer>

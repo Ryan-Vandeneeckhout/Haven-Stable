@@ -10,6 +10,10 @@ import ProgressBar from "../../inputs/ProgressBar";
 import EmailAndPasswordInput from "../../inputs/EmailAndPassInput";
 import { useState, useEffect } from "react";
 
+import { db } from "../../firebase/config";
+import { doc, updateDoc } from "firebase/firestore";
+import { useAuthContext } from "../../firebase/useAuthContext";
+
 const OnBoardingBirthday = (props) => {
   const [success, setSuccess] = useState(null);
   const [dayCheckRight, setDayCheckRight] = useState(null);
@@ -18,6 +22,11 @@ const OnBoardingBirthday = (props) => {
   const dayRef = useRef(null);
   const monthRef = useRef(null);
   const yearRef = useRef(null);
+  const [dayCal, setDay] = useState("");
+  const [month, setMonth] = useState("");
+  const [year, setYear] = useState("");
+  
+  const { user } = useAuthContext();
 
   const DayCheck = () => {
     if (props.dayCal > 31) {
@@ -81,8 +90,13 @@ const OnBoardingBirthday = (props) => {
     DayCheck();
     MonthCheck();
     YearCheck();
-    props.passData();
-    
+    writeUserData();
+  };
+
+  const writeUserData = async () => {
+    await updateDoc(doc(db, `HavenProfileSettings`, `${user.uid}`), {
+      birthday: { dayCal, month, year }
+    });
   };
 
   useEffect(() => {
@@ -121,8 +135,8 @@ const OnBoardingBirthday = (props) => {
                 valueInput={"dd"}
                 valueType={"number"}
                 valueText={"Day"}
-                setValue={props.setDay}
-                value={props.dayCal}
+                setValue={setDay}
+                value={dayCal}
                 InputRef={dayRef}
                 min={"1"}
                 max={"31"}
@@ -131,8 +145,8 @@ const OnBoardingBirthday = (props) => {
                 valueInput={"mm..."}
                 valueText={"Month"}
                 valueType={"number"}
-                setValue={props.setMonth}
-                value={props.month}
+                setValue={setMonth}
+                value={month}
                 InputRef={monthRef}
                 min={"1"}
                 max={"12"}
@@ -141,8 +155,8 @@ const OnBoardingBirthday = (props) => {
                 valueInput={"yy..."}
                 valueText={"Year"}
                 valueType={"number"}
-                setValue={props.setYear}
-                value={props.year}
+                setValue={setYear}
+                value={year}
                 InputRef={yearRef}
                 min={"1900"}
                 max={"2020"}

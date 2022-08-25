@@ -1,0 +1,25 @@
+@import "./variables.scss";
+
+.myNav {
+  height: 40px;
+  ul {
+    @include UlNormalize;
+    @include FlexRowCenter;
+    height: 100%;
+    justify-content: space-evenly;
+
+    li {
+      height: 100%;
+      width: 25%;
+      border-bottom: solid #d9d9d9 2px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .active {
+      border-bottom: solid green 2px;
+    }
+  }
+}

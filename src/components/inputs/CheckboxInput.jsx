@@ -8,8 +8,8 @@ const CheckboxInput = (props) => {
         value={props.valueText}
         onChange={props.handleSubmitChange}
       />
-          <label htmlFor="conditions">{props.valueText}</label>
+      <label htmlFor="conditions">{props.valueText}</label>
     </div>
   );
 };
-export default CheckboxInput; 
+export default CheckboxInput;

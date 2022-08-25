@@ -3,29 +3,29 @@
 .navMenuProfilePage ul {
   @include UlNormalize;
   @include FlexRowCenter;
-  background-color: #1f3023;
+  background-color: white;
+  border-bottom: 1px solid grey;
   color: white;
   justify-content: space-between;
-  padding: 4% 5%;
+  padding: 0% 5%;
+  height: 50px;
   width: 100%;
   position: fixed;
 
   .havenTitleNav {
     font-family: Archivo;
     font-size: 20px;
-    color: #c3e8bd;
+    color: black;
   }
   .userSettings {
     display: flex;
     flex-direction: row;
     width: 25%;
-    justify-content: space-between;
+    justify-content: flex-end;
 
     .profilePicture {
-      height: 15px;
-      width: 15px;
-      filter: invert(93%) sepia(12%) saturate(597%) hue-rotate(58deg)
-        brightness(96%) contrast(90%);
+      height: 20px;
+      width: 20px;
       img {
         width: 100%;
         height: 100%;

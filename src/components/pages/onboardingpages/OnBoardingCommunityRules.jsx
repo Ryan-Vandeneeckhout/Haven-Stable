@@ -6,6 +6,7 @@ import OnBoardingSectionContainer from "../../wrappers/onboardingWrappers/OnBoar
 import { useState, useRef } from "react";
 import InputLinked from "../../inputs/InputLinked";
 import ProgressBar from "../../inputs/ProgressBar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const OnBoardingCommunityRules = () => {
   const [success, setSuccess] = useState(false);
@@ -18,31 +19,12 @@ const OnBoardingCommunityRules = () => {
   return (
     <OnBoardingSectionContainer>
       <OnBoardingSectionWrapper>
-        <OnBoardingUpperContentWrapper>
-          <InputLinked
-            ButtonText={"Back"}
-            ButtonClass={"backButton"}
-            ButtonClassContainer={"upperButtonContainer"}
-            Linked={"/birthday"}
-          />
-          {success ? (
-            <InputLinked
-              ButtonText={"Next"}
-              ButtonClass={"nextButton"}
-              ButtonClassContainer={"upperButtonContainer"}
-              Linked={"/avatars"}
-            />
-          ) : (
-            <div className="buttonContainer upperButtonContainer">
-              <div className="nextButton grey">Next</div>
-            </div>
-          )}
-        </OnBoardingUpperContentWrapper>
+       <h2>haven</h2>
         <ProgressBar setgreen={6} grey={1} green={1} />
-        <h1>Haven community rules</h1>
+        <h2>haven community rules</h2>
         <OnBoardingContentWrapper>
           <form>
-            <p>
+            <p className="communityRules">
               Be respectful, be genuine. Respect member’s privacy. Report
               catfishing. No transphobia, no racism, no fatphobia, no ableism,
               no religious discrimination. No hate speech or bullying of any
@@ -59,12 +41,32 @@ const OnBoardingCommunityRules = () => {
                 onChange={handleInputCheckSelect}
               />
               <label htmlFor="conditions">
-                Accept the terms and Conditions
+                ACCEPT
               </label>
             </div>
           </form>
         </OnBoardingContentWrapper>
       </OnBoardingSectionWrapper>
+      <OnBoardingUpperContentWrapper>
+          <InputLinked
+            ButtonText={"Back"}
+            ButtonClass={"backButton"}
+            ButtonClassContainer={"upperButtonContainer"}
+            Linked={"/birthday"}
+          />
+          {success ? (
+            <InputLinked
+              ButtonText={"Next"}
+              ButtonClass={"nextButton"}
+              ButtonClassContainer={"upperButtonContainer"}
+              Linked={"/avatars"}
+            />
+          ) : (
+            <div className="buttonContainer upperButtonContainer">
+              <div className="nextButton grey"><span>Next <FontAwesomeIcon className="iconArrow" icon="fas fa-angle-right" /></span></div>
+            </div>
+          )}
+        </OnBoardingUpperContentWrapper>
     </OnBoardingSectionContainer>
   );
 };

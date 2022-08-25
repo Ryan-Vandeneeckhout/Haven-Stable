@@ -14,7 +14,7 @@ const OnBoardingCreateUser = (props) => {
       
     }, 1000);
     setTimeout(function () {
-      props.isAuth();
+      props.UserAuth();
       
     }, 1000);
   };

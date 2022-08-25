@@ -3,20 +3,21 @@
   justify-content: space-between;
   padding: 5% 0;
   padding-bottom: 15%;
-  width: 35%;
+  width: 100%;
   min-width: 100px;
 
   .dot {
-    height: 8px;
-    width: 8px;
+    height: 24px;
+    width: 12.5%;
   }
 
   .grey {
-    background-color: #1f3023;
-    border-radius: 90%;
+    background-color: white;
+    outline: solid black 2px;
   }
 }
 
 .green {
-  background-color: #86b26b;
+  background-color: #3dcc79;
+  outline: solid black 2px;
 }

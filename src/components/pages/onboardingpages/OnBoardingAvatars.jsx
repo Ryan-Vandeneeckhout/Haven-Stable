@@ -7,17 +7,26 @@ import OnBoardingSectionContainer from "../../wrappers/onboardingWrappers/OnBoar
 import InputLinked from "../../inputs/InputLinked";
 import ProgressBar from "../../inputs/ProgressBar";
 import OnBoardingAvatarimg from "./OnBoardingAvatarimg";
+import { JingAvatarMap } from "./JingAvatarmap";
 
-const OnBoardingAvatars = (props) => {
-
-  let n = 9;
-  let AvatarMap = props.shuffled.slice(0, n);
-  console.log(AvatarMap);
+const OnBoardingAvatars = () => {
 
   return (
     <OnBoardingSectionContainer>
       <OnBoardingSectionWrapper>
-        <OnBoardingUpperContentWrapper>
+        <h2>haven</h2>
+        <ProgressBar setgreen={7} green={0} grey={1} />
+        <h2 className="titleOnboardingh2">please pick an animal avatar</h2>
+        <p className="tips">TIPS: you can always change it later.</p>
+        <OnBoardingContentWrapper>
+          <div className="Avatars">
+            {JingAvatarMap.map((item, index) => {
+              return <OnBoardingAvatarimg key={index} AvatarImg={item.AvatarImg} />;
+            })}
+          </div>
+        </OnBoardingContentWrapper>
+      </OnBoardingSectionWrapper>
+      <OnBoardingUpperContentWrapper>
           <InputLinked
             ButtonText={"Back"}
             ButtonClass={"backButton"}
@@ -31,20 +40,6 @@ const OnBoardingAvatars = (props) => {
             Linked={"/createuser"}
           />
         </OnBoardingUpperContentWrapper>
-        <ProgressBar setgreen={7} green={0} grey={1} />
-        <h2>Pick an Avatar</h2>
-        <p>Note: you can always change the avatar later.</p>
-        <OnBoardingContentWrapper>
-          <div className="Avatars">
-            {AvatarMap.map((item, index) => {
-              return <OnBoardingAvatarimg passData={props.passData} setAvatar={props.setAvatar} key={index} numbers={item} />;
-            })}
-          </div>
-        </OnBoardingContentWrapper>
-        <OnBoardingContentWrapperBottom>
-          <p>Pick a Cute Avatar to show your sense of style!</p>
-        </OnBoardingContentWrapperBottom>
-      </OnBoardingSectionWrapper>
     </OnBoardingSectionContainer>
   );
 };

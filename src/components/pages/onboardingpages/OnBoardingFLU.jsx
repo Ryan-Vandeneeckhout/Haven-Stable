@@ -8,43 +8,63 @@ import InputLinked from "../../inputs/InputLinked";
 import EmailAndPasswordInput from "../../inputs/EmailAndPassInput";
 import ProgressBar from "../../inputs/ProgressBar";
 import { useRef, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { db } from "../../firebase/config";
+import { setDoc, doc } from "firebase/firestore";
+import { useAuthContext } from "../../firebase/useAuthContext";
 
-const OnBoardingFLU = () => {
+const OnBoardingFLU = (props) => {
+
+  const { user } = useAuthContext();
+
   const firstNameRef = useRef(null);
   const lastNameRef = useRef(null);
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [errorText, setErrorText] = useState(false);
+  const [success, setSuccess] = useState(false); 
 
   const formSubmit = (e) => {
     e.preventDefault();
-
-    const axios = require("axios");
-    const data = JSON.stringify({
-      first_name: firstName,
-      last_name: lastName,
-    });
-
-    const config = {
-      method: "put",
-      url: "https://haven-nodejs.herokuapp.com/onboarding/name",
-      headers: {
-        token: localStorage.getItem("token"),
-        "Content-Type": "application/json",
-      },
-      data: data,
-    };
-
-    axios(config)
-      .then(function (response) {
-        console.log(JSON.stringify(response.data));
-      })
-      .catch(function (error) {
-        if (error.response.data === "not authorized") {
-          setErrorText(true);
-        }
+    writeUserData();
+    /*  const axios = require("axios");
+     const data = JSON.stringify({
+       first_name: firstName,
+       last_name: lastName,
+     });
+ 
+     const config = {
+       method: "put",
+       url: "https://haven-nodejs.herokuapp.com/onboarding/name",
+       headers: {
+         token: localStorage.getItem("token"),
+         "Content-Type": "application/json",
+       },
+       data: data,
+     };
+ 
+     axios(config)
+       .then(function () {
+         setSuccess(true);
+       })
+       .catch(function (error) {
+         if (error.response.data === "not authorized") {
+           setErrorText(true);
+         }
+       });
+   };
+  */
+  }
+  const writeUserData = async () => {
+      await setDoc(doc(db, `HavenProfileSettings`, `${user.uid}`), {
+        uid: user.uid,
+        first_name: firstName,
+        last_name: lastName,
+        onboarding: true, 
       });
+      setSuccess(true);
+    props.writeUsername();
   };
 
   return (
@@ -57,12 +77,18 @@ const OnBoardingFLU = () => {
             ButtonClassContainer={"upperButtonContainer"}
             Linked={"/signup"}
           />
+          {success ? (
           <InputLinked
             ButtonText={"Next"}
             ButtonClass={"nextButton"}
             ButtonClassContainer={"upperButtonContainer"}
             Linked={"/location"}
           />
+          ) : (
+            <div className="buttonContainer upperButtonContainer">
+              <div className="nextButton grey">Next <FontAwesomeIcon className="iconArrow" icon="fas fa-angle-right" /></div>
+            </div>
+          )}
         </OnBoardingUpperContentWrapper>
         <ProgressBar setgreen={0} green={7} grey={1} />
         {errorText ? (
