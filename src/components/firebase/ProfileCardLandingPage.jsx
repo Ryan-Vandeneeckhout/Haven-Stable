@@ -60,29 +60,28 @@ const ProfileCardLandingPage = (props) => {
   };
   return (
     <Link to={`${props.uid}`}>
-    <div className="profileCard">
-      <div className="profileCardUpper">
-        <div className="avatarContainer">{renderAvatar()}</div>
-        <div className="userData">
-          <h3>{props.username}</h3>
+      <div className="profileCard">
+        <div className="profileCardUpper">
+          <div className="avatarContainer">{renderAvatar()}</div>
+          <div className="userData">
+            <h3>{props.username}</h3>
 
-          <div className="userdataPronounsLocation">
-            {renderPronouns()}
-            {renderLocation()}
+            <div className="userdataPronounsLocation">
+              {renderPronouns()}
+              {renderLocation()}
+            </div>
           </div>
         </div>
-      </div>
-
-      <div className="profileCardMiddle">
-        <div className="momentRecent">{renderMoment()}</div>
-        <div className="interestTags">{renderInterestTags()}</div>
-      </div>
-      <div className="profileCardBottom">
+        <div className="profileCardMiddle">
+          <div className="momentRecent">{renderMoment()}</div>
+          <div className="interestTags">{renderInterestTags()}</div>
+        </div>
+        <div className="profileCardBottom">
           <p>{DateTime.fromISO(props.created_at).toRelative()}</p>
-        <p>Message</p>
+          <p>Message</p>
+        </div>
       </div>
-      </div>
-      </Link>
+    </Link>
   );
 };
 export default ProfileCardLandingPage;
