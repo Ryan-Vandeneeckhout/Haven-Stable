@@ -31,6 +31,7 @@ const OnBoarding12Questions = () => {
 
     console.log(tagsArrayRef.current);
     writeUserData();
+    formSubmit();
   }
 
   const writeUserData = async () => {
@@ -40,6 +41,34 @@ const OnBoarding12Questions = () => {
     });
   };
 
+  const formSubmit = () => {
+    const axios = require("axios");
+    const body = JSON.stringify({
+      moments: tagsArrayRef.current,
+    });
+    console.log(body);
+ 
+     const config = {
+       method: "put",
+       url: "https://haven-nodejs.herokuapp.com/onboarding/moments",
+       headers: {
+         token: localStorage.getItem("token"),
+         "Content-Type": "application/json",
+       },
+       body: body,
+     };
+    
+     axios(config)
+       .then(function (response) {
+         console.log(response.data);
+       })
+       .catch(function (error) {
+         if (error.response.data === "not authorized") {
+          console.log(error.response.data);
+         }
+       });
+   };
+  
 
   return (
     <OnBoardingSectionContainer>
@@ -68,7 +97,7 @@ const OnBoarding12Questions = () => {
           <ul className="questionList">
             {JingQuestionList.slice(0, 3).map((item, index) => {
               return (
-                <OnBoarding12QuestionsInput setUserInputMessage={setUserInputMessage} userInputMessage={userInputMessage} setQuestion={setQuestion} handleMoments={writeUserData} pushData={pushData}
+                <OnBoarding12QuestionsInput setUserInputMessage={setUserInputMessage} userInputMessage={userInputMessage} setQuestion={setQuestion} handleMoments={formSubmit} pushData={pushData}
                   key={index}
                   question={item.Question}
                   contentID={item.ContentID}

@@ -14,7 +14,7 @@ const MyMoments = () => {
     "==",
     user.uid,
   ]);
-
+ 
   return (
     <div>
       <MyLogo />
