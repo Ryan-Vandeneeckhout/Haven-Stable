@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { DateTime } from "luxon";
 import "../sass/_profileCard.scss";
 
 const ProfileCardLandingPage = (props) => {
@@ -77,7 +78,7 @@ const ProfileCardLandingPage = (props) => {
         <div className="interestTags">{renderInterestTags()}</div>
       </div>
       <div className="profileCardBottom">
-        <p>{`${props.dateMoment}`}</p>
+          <p>{DateTime.fromISO(props.created_at).toRelative()}</p>
         <p>Message</p>
       </div>
       </div>

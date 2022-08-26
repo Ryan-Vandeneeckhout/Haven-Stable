@@ -21,7 +21,7 @@ const OnBoarding12Questions = () => {
   const [tagsarray, setTagsArray, tagsArrayRef] = useStateRef([]);
   const [, setTagValue, tagValueRef] = useStateRef(null);
 
-  const date = new Date().toJSON().slice(0, 10);
+  const date = new Date().toJSON();
   const { user } = useAuthContext();
   const pushData = () => {
 
