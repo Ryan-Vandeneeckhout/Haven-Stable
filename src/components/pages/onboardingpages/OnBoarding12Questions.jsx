@@ -30,8 +30,9 @@ const OnBoarding12Questions = () => {
     setTagsArray(() => [...tagsarray, tagValueRef.current]);
 
     console.log(tagsArrayRef.current);
-    writeUserData();
     formSubmit();
+    writeUserData();
+    
   }
 
   const writeUserData = async () => {
@@ -43,30 +44,29 @@ const OnBoarding12Questions = () => {
 
   const formSubmit = () => {
     const axios = require("axios");
-    const body = JSON.stringify({
-      moments: tagsArrayRef.current,
+    const data = JSON.stringify({
+      moments: JSON.stringify(tagsArrayRef.current),
     });
-    console.log(body);
- 
-     const config = {
-       method: "put",
-       url: "https://haven-nodejs.herokuapp.com/onboarding/moments",
-       headers: {
-         token: localStorage.getItem("token"),
-         "Content-Type": "application/json",
-       },
-       body: body,
-     };
-    
-     axios(config)
-       .then(function (response) {
-         console.log(response.data);
-       })
-       .catch(function (error) {
-         if (error.response.data === "not authorized") {
-          console.log(error.response.data);
-         }
-       });
+
+    const config = {
+      method: "put",
+      url: "https://haven-nodejs.herokuapp.com/onboarding/moments",
+      headers: {
+        token: localStorage.getItem("token"),
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        if (error.response.data === "not authorized") {
+        }
+        console.log(error)
+      });
    };
   
 
