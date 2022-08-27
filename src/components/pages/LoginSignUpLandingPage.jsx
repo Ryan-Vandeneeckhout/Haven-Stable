@@ -10,7 +10,7 @@ const LoginAndSignUpLandingPage = () => {
       <div className="wrapper5">
         <div className="contentContainer">
           <h1><span className="h1TitleEmphasis">haven</span></h1>
-          <p>a moments journey for members of the LGBTQ+ community to find friends.</p>
+          <p>helping members of the LGBTQ+ community to find friends.</p>
         </div>
         <div className="loginContainers">
         <InputLinked

@@ -114,7 +114,7 @@ const SignUpPage = () => {
   return (
     <OnBoardingSectionContainer>
       <h2 className="havenLogo">haven</h2>
-      <OnBoardingSectionWrapper>
+      <OnBoardingSectionWrapper wrapperFix="wrapperFix">
         <div className="upperContent">
           <h2 className="havenh2">welcome</h2>
           <p className="havenh2pTag">
