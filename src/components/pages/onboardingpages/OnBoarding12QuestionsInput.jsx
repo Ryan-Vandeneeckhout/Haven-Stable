@@ -28,7 +28,7 @@ const OnBoarding12QuestionsInput = (props) => {
           ) : (
               <form className="questionForm" onSubmit={handleState}>
                 <div className="imageContainer">
-                  <img src="" alt="imageQuestion"/>
+                  <img src={props.QuestionPicture} alt="imageQuestion"/>
                 </div>
               <h2>{props.question}</h2>
               <textarea

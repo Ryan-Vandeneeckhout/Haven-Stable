@@ -19,7 +19,6 @@ const OnBoarding12Questions = () => {
   const [question, setQuestion] = useState("");
   const [tagsarray, setTagsArray, tagsArrayRef] = useStateRef([]);
   const [, setTagValue, tagValueRef] = useStateRef(null);
-  const [selectedBox, setSelectedBox] = useState(true);
 
   const date = new Date().toJSON();
   const { user } = useAuthContext();
@@ -92,8 +91,8 @@ const OnBoarding12Questions = () => {
                   key={index}
                   question={item.Question}
                   contentID={item.ContentID}
-                  selectedBox={selectedBox}
-                  setSelectedBox={setSelectedBox}
+                  QuestionPicture={item.QuestionPicture}
+             
                 />
               );
             })}
