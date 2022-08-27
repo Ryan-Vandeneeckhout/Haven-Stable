@@ -69,7 +69,6 @@ const OnBoardingFLU = (props) => {
     setSuccess(true);
     setErrorText(false);
     setErrorTextFill(false);
-    props.writeUsername();
   };
 
   const errorPleaseFill = () => {
