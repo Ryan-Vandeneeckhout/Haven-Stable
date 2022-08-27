@@ -5,7 +5,7 @@ import OnBoardingUpperContentWrapper from "../../wrappers/onboardingWrappers/OnB
 import OnBoardingSectionContainer from "../../wrappers/onboardingWrappers/OnBoardingSectionContainer";
 
 import InputLinked from "../../inputs/InputLinked";
-import ProgressBar from "../../inputs/ProgressBar";
+import ProgressBarWidth from "../../inputs/ProgressBarWidth.jsx";
 import { OnBoardingInterestsMap } from "./OnBoardingInterestsMap";
 import TaglistIndivdualButton from "./TaglistIndividualButton";
 import useStateRef from "react-usestateref";
@@ -70,7 +70,33 @@ const OnBoardingInterests = () => {
   }
   return (
     <OnBoardingSectionContainer>
-      <OnBoardingSectionWrapper>
+    <h2 className="havenLogo">haven</h2>
+    <OnBoardingSectionWrapper>
+      <ProgressBarWidth stepCreation="profile creation" widthGreen={"50%"} widthGrey={"50%"} />
+      <h2>What are you interested in?</h2>
+       
+       
+        <OnBoardingContentWrapper>
+          <div className="interestsContainer">
+            <ul>
+              {OnBoardingInterestsMap.map((item, index) => {
+                return (
+                  <TaglistIndivdualButton
+                    key={index}
+                    ButtonClass={"interestButtons"}
+                    InterestName={item.InterestName}
+                    tagArray={tagArray}
+                    setTagValue={setTagValue}
+                    InterestBorderColour={item.InterestBorderColour}
+                  />
+                );
+              })}
+            </ul>
+          </div>
+        </OnBoardingContentWrapper>
+        <OnBoardingContentWrapperBottom>
+          <p className="paraAccount">Selecting tags helps match you with users with similar interests.</p>
+        </OnBoardingContentWrapperBottom>
         <OnBoardingUpperContentWrapper>
           <InputLinked
             ButtonText={"Back"}
@@ -85,28 +111,6 @@ const OnBoardingInterests = () => {
             Linked={"/gettoknowyou"}
           />
         </OnBoardingUpperContentWrapper>
-        <ProgressBar setgreen={3} green={4} grey={1} />
-        <h2>What are you interested in?</h2>
-        <OnBoardingContentWrapper>
-          <div className="interestsContainer">
-            <ul>
-              {OnBoardingInterestsMap.map((item, index) => {
-                return (
-                  <TaglistIndivdualButton
-                    key={index}
-                    ButtonClass={"interestButtons"}
-                    InterestName={item.InterestName}
-                    tagArray={tagArray}
-                    setTagValue={setTagValue}
-                  />
-                );
-              })}
-            </ul>
-          </div>
-        </OnBoardingContentWrapper>
-        <OnBoardingContentWrapperBottom>
-          <p className="paraAccount">Selecting tags helps the Haven search function match you with users with similar interests.</p>
-        </OnBoardingContentWrapperBottom>
       </OnBoardingSectionWrapper>
     </OnBoardingSectionContainer>
   );

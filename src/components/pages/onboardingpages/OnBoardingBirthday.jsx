@@ -4,15 +4,15 @@ import OnBoardingSectionWrapper from "../../wrappers/onboardingWrappers/OnBoardi
 import OnBoardingUpperContentWrapper from "../../wrappers/onboardingWrappers/OnBoardingUpperContentWrapper";
 import OnBoardingSectionContainer from "../../wrappers/onboardingWrappers/OnBoardingSectionContainer.jsx";
 
-import { useRef } from "react";
-import InputLinked from "../../inputs/InputLinked";
-import ProgressBar from "../../inputs/ProgressBar";
-import EmailAndPasswordInput from "../../inputs/EmailAndPassInput";
-import { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useRef, useState } from "react";
+import InputLinked from "../../inputs/InputLinked.jsx";
+import EmailAndPasswordInput from "../../inputs/EmailAndPassInput.jsx";
+import ProgressBarWidth from "../../inputs/ProgressBarWidth";
 
 import { db } from "../../firebase/config";
 import { doc, updateDoc } from "firebase/firestore";
-import { useAuthContext } from "../../firebase/useAuthContext";
+import { useAuthContext } from "../../firebase/useAuthContext.js";
 
 const OnBoardingBirthday = (props) => {
   const [success, setSuccess] = useState(null);
@@ -99,35 +99,12 @@ const OnBoardingBirthday = (props) => {
     });
   };
 
-  useEffect(() => {
-    SuccessCheck(success);
-  }, [success, SuccessCheck]);
-
   return (
-    <OnBoardingSectionContainer>
+    <OnBoardingSectionContainer backgroundClass="birthdayBackground">
+    <h2 className="havenLogo">haven</h2>
       <OnBoardingSectionWrapper>
-        <OnBoardingUpperContentWrapper>
-          <InputLinked
-            ButtonText={"Back"}
-            ButtonClass={"backButton"}
-            ButtonClassContainer={"upperButtonContainer"}
-            Linked={"/gettoknowyou"}
-          />
-          {success ? (
-            <InputLinked
-              ButtonText={"Next"}
-              ButtonClass={"nextButton"}
-              ButtonClassContainer={"upperButtonContainer"}
-              Linked={"/communityrules"}
-            />
-          ) : (
-            <div className="buttonContainer upperButtonContainer">
-              <div className="nextButton grey">Next <span className="imageButton"><img src="./assets/svg/arrow.svg" alt="Arrow"/></span></div>
-            </div>
-          )}
-        </OnBoardingUpperContentWrapper>
-        <ProgressBar setgreen={5} grey={1} green={2} />
-        <h2>When is your birthday?</h2>
+        <ProgressBarWidth stepCreation="account" widthGreen={"87.5%"} widthGrey={"12.5%"} />
+        <h2>when is your birthday?</h2>
         <OnBoardingContentWrapper>
           <form className="birthdayForm" onSubmit={HandleSubmit}>
             <div className="birthdayFormInputContainer">
@@ -171,6 +148,32 @@ const OnBoardingBirthday = (props) => {
             User Must be 18 Years or older to use Haven.
           </p>
         </OnBoardingContentWrapperBottom>
+        <OnBoardingUpperContentWrapper>
+          <InputLinked
+            ButtonText={"Back"}
+            ButtonClass={"backButton"}
+            ButtonClassContainer={"upperButtonContainer"}
+            Linked={"/gettoknowyou"}
+          />
+          {success ? (
+            <InputLinked
+              ButtonText={"Next"}
+              ButtonClass={"nextButton"}
+              ButtonClassContainer={"upperButtonContainer"}
+              Linked={"/communityrules"}
+            />
+          ) : (
+            <div className="buttonContainer upperButtonContainer">
+            <div className="nextButton grey">
+              Next{" "}
+              <FontAwesomeIcon
+                className="iconArrow"
+                icon="fas fa-angle-right"
+              />
+            </div>
+          </div>
+          )}
+        </OnBoardingUpperContentWrapper>
       </OnBoardingSectionWrapper>
     </OnBoardingSectionContainer>
   );

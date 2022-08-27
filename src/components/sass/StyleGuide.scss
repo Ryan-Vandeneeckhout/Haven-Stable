@@ -35,7 +35,17 @@ h2 {
   font-size: $fontMedium;
   line-height: 120%;
 }
-
+.havenLogo {
+  font-family: Archivo;
+  font-size: 24px;
+  width: 100%;
+  padding: 2% 5%;
+  margin-bottom: 0;
+}
+.havenh2 {
+  font-family: Archivo;
+  font-size: 24px;
+}
 h1 {
   font-family: $fontHeadingType;
   font-size: $fontH1;

@@ -10,20 +10,23 @@ import EmailAndPasswordInput from "../inputs/EmailAndPassInput.jsx";
 
 const SignUpPage = () => {
   const [confirmpassword, setConfirmPassword] = useState("");
-  const [errorAPI, setErrorPassword] = useState("");
-  const [passWordError, setPassWordError] = useState(false);
-  const [username, setUserName] = useState(""); 
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { signup } = useSignup();
-  const ConfirmPassWordText = "Confirm Password";
+
+  const [errorAPI, setErrorPassword] = useState("");
+  const [passWordError, setPassWordError] = useState(false);
   const [errorText, setErrorText] = useState(false);
+
+  const { signup, error } = useSignup();
+  const ConfirmPassWordText = "Confirm Password";
+
+  const lowerCaseLetters = /[a-z]/g;
+  const upperCaseLetters = /[A-Z]/g;
+  const numbers = /[0-9]/g;
 
   const navigate = useNavigate();
 
   const emailRef = useRef(null);
-  const usernameRef = useRef(null);
   const passwordRef = useRef(null);
   const confirmPasswordRef = useRef(null);
 
@@ -55,75 +58,73 @@ const SignUpPage = () => {
         "Password needs to include an @ symbol. Please try again."
       );
     }
+
     if (
+      passwordRef.current.value.match(
+        lowerCaseLetters && upperCaseLetters && numbers
+      ) &&
       password === confirmpassword &&
       password.includes("@") &&
       password.length > 4
     ) {
       passwordRef.current.classList.remove("errorForm");
       confirmPasswordRef.current.classList.remove("errorForm");
+      passwordRef.current.classList.remove("errorForm");
+      confirmPasswordRef.current.classList.remove("errorForm");
       passwordRef.current.classList.add("successForm");
       confirmPasswordRef.current.classList.add("successForm");
       setPassWordError(false);
-      
-      signup(email, password, username);
-      localStorage.setItem("email", email);
-      localStorage.setItem("password", password);
-      localStorage.setItem("username", username)
-      
-       const axios = require('axios');
+
+      signup(email, password);
+
+      const axios = require("axios");
       const data = JSON.stringify({
         password: password,
         email: email,
-        username: username
+        username: "user",
       });
-      
+
       const config = {
-        method: 'post',
-        url: 'https://haven-nodejs.herokuapp.com/auth/register',
+        method: "post",
+        url: "https://haven-nodejs.herokuapp.com/auth/register",
         headers: { "Content-Type": "application/json" },
-        data : data
+        data: data,
       };
-      
+
       axios(config)
-      .then(function (response) {
-        console.log(JSON.stringify(response.data));
-        localStorage.setItem("token", response.data.token);
-        
-        emailRef.current.classList.add("successForm");
-        setTimeout(function () {
-          navigate('/flu');
-        }, 1000);
+        .then(function (response) {
+          console.log(JSON.stringify(response.data));
+          localStorage.setItem("token", response.data.token);
 
-      })
+          emailRef.current.classList.add("successForm");
+          setTimeout(function () {
+            navigate("/flu");
+          }, 1000);
+        })
         .catch(function (error) {
-        if (error.response.data === "user already exists") {
-          emailRef.current.classList.add("errorForm");
-          setErrorText(true);
-        }
-        else {
-          console.log("Servor error check logs")
-       }
-      });
-
-    } 
+          if (error.response.data === "user already exists") {
+            emailRef.current.classList.add("errorForm");
+            setErrorText(true);
+          } else {
+            console.log("Servor error check logs");
+          }
+        });
+    }
   };
   return (
     <OnBoardingSectionContainer>
+      <h2 className="havenLogo">haven</h2>
       <OnBoardingSectionWrapper>
         <div className="upperContent">
-          <h2>Join haven today</h2>
-          <p>
-            By Continuing, you agree to our{" "}
-            <Link to={"/terms"}>
-              <b>Terms of Use</b>{" "}
-            </Link>
-            and our <b>Privacy Policy</b>
+          <h2 className="havenh2">welcome</h2>
+          <p className="havenh2pTag">
+            {" "}
+            create an account with your email address
           </p>
         </div>
         <div className="middleContent">
           <form className="textForm" onSubmit={HandleSubmit}>
-            {errorText ? (
+            {errorText || error ? (
               <p className="errorAlert">
                 <span className="errorIcon" />
                 Email is Unavailable. Please choose a Different Email!
@@ -138,7 +139,10 @@ const SignUpPage = () => {
               InputRef={passwordRef}
               EmailRef={emailRef}
             />
-  
+            <p className="tips">
+              tip: password must contain 1 uppercase letter and one special
+              character and must have greater then 5 characters
+            </p>
             <EmailAndPasswordInput
               InputRef={confirmPasswordRef}
               valueInput={ConfirmPassWordText}
@@ -146,13 +150,6 @@ const SignUpPage = () => {
               valueType={"password"}
               setValue={setConfirmPassword}
               value={confirmpassword}
-            />
-            <EmailAndPasswordInput
-              valueInput={"Username required..."}
-              valueText={"Username"}
-              setValue={setUserName}
-              value={username}
-              InputRef={usernameRef}
             />
             {passWordError ? <p className="redColour">{errorAPI}</p> : null}
             <button>Sign Up</button>

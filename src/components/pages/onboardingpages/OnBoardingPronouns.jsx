@@ -1,11 +1,10 @@
 import OnBoardingContentWrapper from "../../wrappers/onboardingWrappers/OnBoardingContentWrapper";
-import OnBoardingContentWrapperBottom from "../../wrappers/onboardingWrappers/OnBoardingContentWrapperBottom";
 import OnBoardingSectionWrapper from "../../wrappers/onboardingWrappers/OnBoardingSectionWrapper";
 import OnBoardingUpperContentWrapper from "../../wrappers/onboardingWrappers/OnBoardingUpperContentWrapper";
 import OnBoardingSectionContainer from "../../wrappers/onboardingWrappers/OnBoardingSectionContainer";
 
 import InputLinked from "../../inputs/InputLinked";
-import ProgressBar from "../../inputs/ProgressBar";
+import ProgressBarWidth from "../../inputs/ProgressBarWidth.jsx";
 import EmailAndPasswordInput from "../../inputs/EmailAndPassInput";
 
 import { useRef } from "react";
@@ -40,6 +39,7 @@ const OnBoardingPronouns = () => {
     const axios = require("axios");
     const data = JSON.stringify({
       pronouns: pronouns,
+      pronounsCustom: customRef.current.value, 
     });
 
     const config = {
@@ -70,22 +70,9 @@ const OnBoardingPronouns = () => {
   };
   return (
     <OnBoardingSectionContainer>
+      <h2 className="havenLogo">haven</h2>
       <OnBoardingSectionWrapper>
-        <OnBoardingUpperContentWrapper>
-          <InputLinked
-            ButtonText={"Back"}
-            ButtonClass={"backButton"}
-            ButtonClassContainer={"upperButtonContainer"}
-            Linked={"/location"}
-          />
-          <InputLinked
-            ButtonText={"Next"}
-            ButtonClass={"nextButton"}
-            ButtonClassContainer={"upperButtonContainer"}
-            Linked={"/interests"}
-          />
-        </OnBoardingUpperContentWrapper>
-        <ProgressBar setgreen={2} green={5} grey={1} />
+        <ProgressBarWidth stepCreation="account" widthGreen={"37.5%"} widthGrey={"62.5%"} />
         <h2>What are your preferred pronouns?</h2>
         <OnBoardingContentWrapper>
           <form className="textForm">
@@ -141,10 +128,23 @@ const OnBoardingPronouns = () => {
               InputRef={customRef}
             />
           </form>
-        </OnBoardingContentWrapper>
-        <OnBoardingContentWrapperBottom>
           <p className="pronounsPara">Note: You can always change it later.</p>
-        </OnBoardingContentWrapperBottom>
+        </OnBoardingContentWrapper>
+
+        <OnBoardingUpperContentWrapper>
+          <InputLinked
+            ButtonText={"Back"}
+            ButtonClass={"backButton"}
+            ButtonClassContainer={"upperButtonContainer"}
+            Linked={"/location"}
+          />
+          <InputLinked
+            ButtonText={"Next"}
+            ButtonClass={"nextButton"}
+            ButtonClassContainer={"upperButtonContainer"}
+            Linked={"/interests"}
+          />
+        </OnBoardingUpperContentWrapper>
       </OnBoardingSectionWrapper>
     </OnBoardingSectionContainer>
   );

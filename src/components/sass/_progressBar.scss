@@ -1,8 +1,7 @@
 .Bar {
   display: flex;
   justify-content: space-between;
-  padding: 5% 0;
-  padding-bottom: 15%;
+  padding: 1% 0;
   width: 100%;
   min-width: 100px;
 
@@ -14,6 +13,17 @@
   .grey {
     background-color: white;
     outline: solid black 2px;
+  }
+
+  .greyBar {
+    height: 24px;
+    background-color: lightgrey;
+    outline: black solid 2px;
+  }
+  .greenBar {
+    height: 24px;
+    background-color: #3dcc79;
+    outline: black solid 2px;
   }
 }
 

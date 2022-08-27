@@ -4,7 +4,7 @@ import OnBoardingUpperContentWrapper from "../../wrappers/onboardingWrappers/OnB
 import OnBoardingSectionContainer from "../../wrappers/onboardingWrappers/OnBoardingSectionContainer";
 
 import InputLinked from "../../inputs/InputLinked";
-import ProgressBar from "../../inputs/ProgressBar";
+import ProgressBarWidth from "../../inputs/ProgressBarWidth";
 import { useState } from "react";
 import useStateRef from "react-usestateref";
 import OnBoarding12QuestionsInput from "./OnBoarding12QuestionsInput";
@@ -15,25 +15,23 @@ import { doc, updateDoc } from "firebase/firestore";
 import { useAuthContext } from "../../firebase/useAuthContext";
 
 const OnBoarding12Questions = () => {
-  
   const [userInputMessage, setUserInputMessage] = useState("");
-  const [question, setQuestion] = useState(""); 
+  const [question, setQuestion] = useState("");
   const [tagsarray, setTagsArray, tagsArrayRef] = useStateRef([]);
   const [, setTagValue, tagValueRef] = useStateRef(null);
+  const [selectedBox, setSelectedBox] = useState(true);
 
   const date = new Date().toJSON();
   const { user } = useAuthContext();
   const pushData = () => {
+    setTagValue({ question: question, answer: userInputMessage });
 
-    setTagValue({ question: question, answer: userInputMessage }); 
-    
     setTagsArray(() => [...tagsarray, tagValueRef.current]);
 
     console.log(tagsArrayRef.current);
     formSubmit();
     writeUserData();
-    
-  }
+  };
 
   const writeUserData = async () => {
     await updateDoc(doc(db, `HavenProfileSettings`, `${user.uid}`), {
@@ -65,14 +63,42 @@ const OnBoarding12Questions = () => {
       .catch(function (error) {
         if (error.response.data === "not authorized") {
         }
-        console.log(error)
+        console.log(error);
       });
-   };
-  
+  };
 
   return (
-    <OnBoardingSectionContainer>
+    <OnBoardingSectionContainer backgroundClass="heartBackground">
+      <h2 className="havenLogo">haven</h2>
       <OnBoardingSectionWrapper>
+        <ProgressBarWidth stepCreation="profile creation" widthGreen={"62.5%"} widthGrey={"37.5%"} />
+        <h2>write a moment for your profile</h2>
+        <OnBoardingContentWrapper>
+          <p>
+            <b>
+              Take a moment to share a thought or two, this helps other likeminded people to connect with you, you can always edit them later. 
+            </b>
+          </p>
+
+          <ul className="questionList">
+            {JingQuestionList.slice(0, 3).map((item, index) => {
+              return (
+                <OnBoarding12QuestionsInput
+                  setUserInputMessage={setUserInputMessage}
+                  userInputMessage={userInputMessage}
+                  setQuestion={setQuestion}
+                  handleMoments={formSubmit}
+                  pushData={pushData}
+                  key={index}
+                  question={item.Question}
+                  contentID={item.ContentID}
+                  selectedBox={selectedBox}
+                  setSelectedBox={setSelectedBox}
+                />
+              );
+            })}
+          </ul>
+        </OnBoardingContentWrapper>
         <OnBoardingUpperContentWrapper>
           <InputLinked
             ButtonText={"Back"}
@@ -87,25 +113,6 @@ const OnBoarding12Questions = () => {
             Linked={"/birthday"}
           />
         </OnBoardingUpperContentWrapper>
-        <ProgressBar setgreen={4} green={3} grey={1} />
-        <OnBoardingContentWrapper>
-          <p><b>
-            Show off who you are as a person by filling a couple of moments
-            cards that will be showcased on your profile</b>
-          </p>
-
-          <ul className="questionList">
-            {JingQuestionList.slice(0, 3).map((item, index) => {
-              return (
-                <OnBoarding12QuestionsInput setUserInputMessage={setUserInputMessage} userInputMessage={userInputMessage} setQuestion={setQuestion} handleMoments={formSubmit} pushData={pushData}
-                  key={index}
-                  question={item.Question}
-                  contentID={item.ContentID}
-                />
-              );
-            })}
-          </ul>
-        </OnBoardingContentWrapper>
       </OnBoardingSectionWrapper>
     </OnBoardingSectionContainer>
   );

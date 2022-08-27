@@ -5,7 +5,7 @@ import OnBoardingSectionContainer from "../../wrappers/onboardingWrappers/OnBoar
 
 import { useState, useRef } from "react";
 import InputLinked from "../../inputs/InputLinked";
-import ProgressBar from "../../inputs/ProgressBar";
+import ProgressBarWidth from "../../inputs/ProgressBarWidth";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const OnBoardingCommunityRules = () => {
@@ -18,13 +18,13 @@ const OnBoardingCommunityRules = () => {
 
   return (
     <OnBoardingSectionContainer>
+      <h2 className="havenLogo">haven</h2>
       <OnBoardingSectionWrapper>
-       <h2>haven</h2>
-        <ProgressBar setgreen={6} grey={1} green={1} />
+        <ProgressBarWidth stepCreation="community" widthGreen={"87.5%"} widthGrey={"12.5%"} />
         <h2>haven community rules</h2>
         <OnBoardingContentWrapper>
           <form>
-            <p className="communityRules">
+            <p>
               Be respectful, be genuine. Respect member’s privacy. Report
               catfishing. No transphobia, no racism, no fatphobia, no ableism,
               no religious discrimination. No hate speech or bullying of any
@@ -46,8 +46,7 @@ const OnBoardingCommunityRules = () => {
             </div>
           </form>
         </OnBoardingContentWrapper>
-      </OnBoardingSectionWrapper>
-      <OnBoardingUpperContentWrapper>
+        <OnBoardingUpperContentWrapper>
           <InputLinked
             ButtonText={"Back"}
             ButtonClass={"backButton"}
@@ -67,6 +66,8 @@ const OnBoardingCommunityRules = () => {
             </div>
           )}
         </OnBoardingUpperContentWrapper>
+      </OnBoardingSectionWrapper>
+ 
     </OnBoardingSectionContainer>
   );
 };

@@ -27,7 +27,7 @@ const TaglistIndivdualButton = (props) => {
         
     }
     return (
-        <button ref={tagButtonRef} onClick={buttonClicked} className={props.ButtonClass} value={props.InterestName}>{props.InterestName}
+        <button ref={tagButtonRef} onClick={buttonClicked} className={`${props.ButtonClass} ${props.InterestBorderColour}`} value={props.InterestName}>{props.InterestName}
         </button>
     )
 }
