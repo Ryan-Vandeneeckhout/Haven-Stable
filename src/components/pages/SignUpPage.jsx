@@ -77,41 +77,10 @@ const SignUpPage = () => {
 
       signup(email, password);
 
-      const axios = require("axios");
-      const data = JSON.stringify({
-        password: password,
-        email: email,
-        username: "user",
-      });
-
-      const config = {
-        method: "post",
-        url: "https://haven-nodejs.herokuapp.com/auth/register",
-        headers: { "Content-Type": "application/json" },
-        data: data,
-      };
-
-      axios(config)
-        .then(function (response) {
-          console.log(JSON.stringify(response.data));
-          localStorage.setItem("token", response.data.token);
-          emailRef.current.classList.add("successForm");
-          emailRef.current.classList.remove("errorForm");
-          setTimeout(function () {
-            navigate("/flu");
-          }, 1000);
-        })
-        .catch(function (error) {
-          if (error.response.data === "user already exists") {
-            emailRef.current.classList.add("errorForm");
-            emailRef.current.classList.remove("successForm");
-            setErrorText(true);
-          } else {
-            console.log("Servor error check logs");
-          }
-        });
+      setTimeout(function () {
+        navigate("/flu");
+      }, 1000);
     }
-
   };
   return (
     <OnBoardingSectionContainer>
