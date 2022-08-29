@@ -114,10 +114,11 @@
       justify-content: space-between;
       flex-wrap: wrap;
       height: 100%;
+      padding: 10% 0;
       .imgAvatar {
         height: 60px;
         width: 60px;
-        margin: 5%;
+        margin: 5% 2%;
         cursor: pointer;
         border-radius: 90%;
         background-color: #e8e8e8;
@@ -129,7 +130,7 @@
         cursor: pointer;
       }
       .selectedAvatar {
-        outline: solid gold 3px;
+        outline: solid #3f273a 3px;
         border-radius: 90%;
       }
     }

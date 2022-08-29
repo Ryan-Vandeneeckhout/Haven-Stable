@@ -22,7 +22,6 @@ const UserProfilePage = () => {
         <>
           {databaseFirestore.map((post) => (
             <>
-              <h1>{post.username}</h1>
               <UserProfilePageData
                 username={post.username}
                 interests={post.interests}
@@ -42,7 +41,7 @@ const UserProfilePage = () => {
   return (
     <>
       <NavMenu />
-      <section>
+      <section className="userProfilePageOther">
         <div className="wrapper10">{renderProfilePage()}</div>
       </section>
     </>

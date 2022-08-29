@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
+import "../../sass/_loadingScreen.scss";
 
 const OnBoardingCreateUser = (props) => {
   
-  const [text, setText] = useState(""); 
+  const [text, setText] = useState("creating user"); 
   
   useEffect(() => {
     LoadingScreenLoaded();
@@ -15,7 +16,6 @@ const OnBoardingCreateUser = (props) => {
     }, 1000);
     setTimeout(function () {
       props.UserAuth();
-      
     }, 1000);
   };
 

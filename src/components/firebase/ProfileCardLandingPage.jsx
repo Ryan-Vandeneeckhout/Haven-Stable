@@ -7,56 +7,85 @@ const ProfileCardLandingPage = (props) => {
     return <img src={props.avatar} alt="User Avatar" />;
   };
   const renderPronouns = () => {
-    return (
-      <p>
-        {props.pronouns.map((item, index) => {
-          return (
-            <span className="pronounItem" key={index}>
-              {item.pronoun}{" "}
-            </span>
-          );
-        })}
-      </p>
-    );
+
+    if (props.pronouns === undefined) {
+      return <p>Pronouns none</p>
+    }
+
+    else {
+      return (
+        <p>
+          {props.pronouns.map((item, index) => {
+            return (
+              <span className="pronounItem" key={index}> 
+                {item.pronoun} / 
+              </span>
+            );
+          })}
+        </p>
+      );
+    }
   };
 
   const renderMoment = () => {
-    return (
-      <>
-        {props.moments.map((item, index) => {
-          return (
-            <>
-              <h4 className="pronounItem" key={index}>
-                {item.question}
-              </h4>
-              <p>{item.answer}</p>
-            </>
-          );
-        })}
-      </>
-    );
+    if (props.moments === undefined) {
+      return <p>interests none</p>
+    }
+    else {
+    
+      return (
+        <>
+          {props.moments.map((item, index) => {
+            return (
+              <div className="momentItem">
+                <h4 className="pronounItem" key={index}>
+                  {item.question}
+                </h4>
+                <p>{item.answer}</p>
+              </div>
+            );
+          })}
+        </>
+      );
+    }
   };
 
   const renderInterestTags = () => {
-    return (
-      <>
-        {props.interests.map((item, index) => {
-          return (
-            <p className="interestTag" key={index}>
-              {item}
-            </p>
-          );
-        })}
-      </>
-    );
+
+    if (props.interests === undefined) {
+      return <p>interests none</p>
+    }
+    else {
+      return (
+        <>
+          {props.interests.map((item, index) => {
+            return (
+              <p className="interestTag" key={index}>
+                {item}
+              </p>
+            );
+          })}
+        </>
+      );
+
+    }
+   
   };
 
   const renderLocation = () => {
-    return (
-      <>
-        <p className="interestTag">{props.location.label}</p>
-      </>
-    );
+    if (props.location === undefined) {
+      return <p>location none</p>
+    }
+    else {
+
+      return (
+        <>
+          <p className="interestTag">{props.location.label}</p>
+        </>
+      );
+
+    }
+   
   };
   return (
     <Link to={`${props.uid}`}>

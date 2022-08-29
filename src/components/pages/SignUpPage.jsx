@@ -95,8 +95,8 @@ const SignUpPage = () => {
         .then(function (response) {
           console.log(JSON.stringify(response.data));
           localStorage.setItem("token", response.data.token);
-
           emailRef.current.classList.add("successForm");
+          emailRef.current.classList.remove("errorForm");
           setTimeout(function () {
             navigate("/flu");
           }, 1000);
@@ -104,12 +104,14 @@ const SignUpPage = () => {
         .catch(function (error) {
           if (error.response.data === "user already exists") {
             emailRef.current.classList.add("errorForm");
+            emailRef.current.classList.remove("successForm");
             setErrorText(true);
           } else {
             console.log("Servor error check logs");
           }
         });
     }
+
   };
   return (
     <OnBoardingSectionContainer>
@@ -126,7 +128,9 @@ const SignUpPage = () => {
           <form className="textForm" onSubmit={HandleSubmit}>
             {errorText || error ? (
               <p className="errorAlert">
-                <span className="errorIcon" />
+                <span className="errorIcon">
+                  <img src="./assets/svg/error.svg" alt="error icon" />
+                </span>
                 Email is Unavailable. Please choose a Different Email!
               </p>
             ) : null}

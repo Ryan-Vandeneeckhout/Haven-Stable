@@ -6,7 +6,7 @@ import MyFriends from "../firebase/User/MyFriends.jsx";
 import MyMoments from "../firebase/User/MyMoments.jsx";
 import MyEvents from "../firebase/User/MyEvents.jsx";
 
-const UserSignInRouting = () => {
+const UserSignInRouting = (props) => {
   window.history.replaceState(true, "Haven Home", "/");
 
   return (
@@ -14,7 +14,7 @@ const UserSignInRouting = () => {
       <Routes>
         <Route extact path="/" element={<UserProfileLandingPage />} />
         <Route extact path="/createuser" element={<Navigate to="/" />} />
-        <Route exact path="/myprofile" element={<MyProfilePage />} />
+        <Route exact path="/myprofile" element={<MyProfilePage UserAuth={props.UserAuth} />} />
         <Route extact path="/interests" element={<Navigate to="/" />} />
         <Route extact path="/signup" element={<Navigate to="/" />} />
         <Route extact path="/login" element={<Navigate to="/" />} />

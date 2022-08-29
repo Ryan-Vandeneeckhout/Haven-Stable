@@ -1,4 +1,5 @@
 import "../sass/_profileCard.scss";
+import "../sass/_otherUsers.scss";
 
 const UserProfilePageData = (props) => {
   const renderAvatar = () => {
@@ -7,7 +8,7 @@ const UserProfilePageData = (props) => {
       props.avatar === null ||
       props.avatar === undefined
     ) {
-      return <img src="./assets/profileAvatars/profileDefault.png" />;
+      return <img src="./assets/profileAvatars/profileDefault.png" alt="default avatar" />;
     } else {
       return <img src={props.avatar} alt="User Avatar" />;
     }
@@ -28,10 +29,10 @@ const UserProfilePageData = (props) => {
       <>
         {props.moments.map((item, index) => {
           return (
-            <>
-              <h4 key={index}>{item.question}</h4>
+            <div className="otherUserMoments" key={index}>
+              <h4>{item.question}</h4>
               <p>{item.answer}</p>
-            </>
+            </div>
           );
         })}
       </>
@@ -60,8 +61,14 @@ const UserProfilePageData = (props) => {
     <>
       <div className="profilePageUpper">
         {renderAvatar()}
-        {renderLocation()}
-        {renderPronouns()}
+        <h3>{props.username}</h3>
+      </div>
+
+      <div className="profilePageUpper">
+        <div className="profilePageUpperLocationPronouns">
+          {renderLocation()}
+          {renderPronouns()}
+        </div>
       </div>
 
       <div className="profilePageMiddle">
@@ -70,7 +77,7 @@ const UserProfilePageData = (props) => {
       </div>
 
       <div className="profilePageBottom">
-        <h3>Past Moments</h3>
+        <h3>Moments Journal:</h3>
         {renderMoment()}
       </div>
     </>

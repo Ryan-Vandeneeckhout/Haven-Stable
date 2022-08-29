@@ -1,0 +1,53 @@
+.userProfilePageOther {
+  padding: 15% 0;
+  background-color: white;
+
+  .profilePageUpper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10% 0;
+    border-bottom: solid black 2px;
+    .profilePageUpperLocationPronouns {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+
+  .profilePageMiddle {
+    padding: 10% 0;
+    border-bottom: solid black 2px;
+
+    display: flex;
+    flex-direction: column;
+
+    .interestTags {
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+
+      p {
+        background-color: #12fba4;
+        stroke: Linear Gradient #03b9e9 0% #dbe07f 100%;
+        stroke-width: 2px;
+        font-weight: 700;
+        border-radius: 15px;
+        padding: 4px 8px 4px 8px;
+        margin-right: 3%;
+      }
+    }
+  }
+
+  .profilePageBottom {
+    padding: 10% 0;
+    border-bottom: solid black 2px;
+
+    .otherUserMoments {
+      box-shadow: 1px -1px 4px 0px rgba(0, 0, 0, 0.75);
+      -webkit-box-shadow: 1px -1px 4px 0px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 1px -1px 4px 0px rgba(0, 0, 0, 0.75);
+      padding: 10%;
+    }
+  }
+}
